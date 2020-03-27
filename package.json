@@ -1,0 +1,10 @@
+{
+  "name": "cephalon-tobran-web",
+  "description": "Cephalon Tobran trapped in a web browser.",
+  "author": {
+    "name": "Ed Rands",
+    "email": "erands@gmail.com"
+  },
+  "version": "0.0.0",
+  "private": true
+}
