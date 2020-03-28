@@ -1,0 +1,25 @@
+# This workflow will apply a label to opened issue based on keywords
+
+name: "Label New Issues"
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Label Features"
+        uses: Naturalclar/issue-action@v1.0.0
+        with:
+          keywords: '["Feature:"]'
+          labels: '["Feature :+1:"]'
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+  
+      - name: "Label Bugs"
+        uses: Naturalclar/issue-action@v1.0.0
+        with:
+          keywords: '["Fix:"]'
+          labels: '["Bug :bug:"]'
+          github-token: "${{ secrets.GITHUB_TOKEN }}"  
+          
