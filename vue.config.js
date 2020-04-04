@@ -1,9 +1,11 @@
 module.exports = {
   css: {
-    sourceMap: true
+    sourceMap: true,
   },
-
   pwa: {
-    name: "Cephalon Tobras"
-  }
-};
+    name: "Cephalon Tobras",
+    themeColor: "#4D93BA",
+  },
+  productionSourceMap: false,
+  transpileDependencies: ["vuetify"],
+}
