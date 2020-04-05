@@ -1,6 +1,6 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
-import DashboardView from "../views/dashboard.vue"
+import DashboardView from "../views/general/dashboard.vue"
 
 Vue.use(VueRouter)
 
@@ -14,19 +14,19 @@ const routes = [
     path: "/about",
     name: "About",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/about.vue"),
+      import(/* webpackChunkName: "about" */ "../views/general/about.vue"),
   },
   {
-    path: "/settings",
-    name: "Settings",
+    path: "/options",
+    name: "Options",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/settings.vue"),
+      import(/* webpackChunkName: "options" */ "../views/general/options.vue"),
   },
   {
     path: "*",
-    name: "Not Found",
+    name: "404",
     component: () =>
-      import(/* webpackChunkName: "404-not-found" */ "../views/not-found.vue"),
+      import(/* webpackChunkName: "error-404" */ "../views/errors/404.vue"),
   },
 ]
 

@@ -1,0 +1,39 @@
+{
+  "about": {
+    "heading": "About @:brand.name.full"
+  },
+  "brand": {
+    "name": {
+      "full": "Cephalon Tobran",
+      "short": "Tobran"
+    }
+  },
+  "dashboard": {
+    "heading": "This is the dashboard, waiting for some content."
+  },
+  "error": {
+    "404": {
+      "back": "Go back",
+      "dashboard": "Go to the Dashboard",
+      "message": "This is not the Cephalon you were looking for.",
+      "title": "Error: Not Found"
+    }
+  },
+  "mainMenu": {
+    "about": {
+      "subtitle": "About this cephalon",
+      "title": "About"
+    },
+    "dashboard": {
+      "subtitle": "Overview of progress",
+      "title": "Dashboard"
+    },
+    "options": {
+      "subtitle": "Change cephalon options",
+      "title": "Options"
+    }
+  },
+  "options": {
+    "heading": "Options for @:brand.name.full"
+  }
+}

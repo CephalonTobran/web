@@ -1,7 +1,8 @@
 <template>
   <v-app>
+    <!-- Main Menu -->
     <v-navigation-drawer
-      v-model="mainMenuVisible"
+      v-model="mainMenu.visible"
       app
       temporary
       color="secondary"
@@ -9,7 +10,7 @@
     >
       <v-list nav two-line>
         <v-list-item
-          v-for="(menuItem, i) in mainMenuItems"
+          v-for="(menuItem, i) in mainMenu.items"
           :key="i"
           :to="{ name: menuItem.route }"
           exact
@@ -24,20 +25,25 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+    <!-- End Main Menu -->
 
+    <!-- App Bar -->
     <v-app-bar app color="primary">
       <v-app-bar-nav-icon
-        @click.stop="mainMenuVisible = !mainMenuVisible"
+        @click.stop="mainMenu.visible = !mainMenu.visible"
       ></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Cephalon Tobran</v-toolbar-title>
+      <v-toolbar-title>{{ $t("brand.name.full") }}</v-toolbar-title>
     </v-app-bar>
+    <!-- End App Bar -->
 
+    <!-- Main Content -->
     <v-content>
       <v-container fluid>
         <router-view></router-view>
       </v-container>
     </v-content>
+    <!-- End Main Content -->
   </v-app>
 </template>
 
@@ -47,28 +53,32 @@
   export default Vue.extend({
     name: "App",
 
-    data: () => ({
-      mainMenuVisible: false,
-      mainMenuItems: [
-        {
-          title: "Dashboard",
-          subtitle: "General overview",
-          icon: "view-dashboard-outline",
-          route: "Dashboard",
+    data: function () {
+      return {
+        mainMenu: {
+          visible: false,
+          items: [
+            {
+              title: this.$i18n.t("mainMenu.dashboard.title"),
+              subtitle: this.$i18n.t("mainMenu.dashboard.subtitle"),
+              icon: "view-dashboard-outline",
+              route: "Dashboard",
+            },
+            {
+              title: this.$i18n.t("mainMenu.options.title"),
+              subtitle: this.$i18n.t("mainMenu.options.subtitle"),
+              icon: "cog-outline",
+              route: "Options",
+            },
+            {
+              title: this.$i18n.t("mainMenu.about.title"),
+              subtitle: this.$i18n.t("mainMenu.about.subtitle"),
+              icon: "information-outline",
+              route: "About",
+            },
+          ],
         },
-        {
-          title: "Settings",
-          subtitle: "Change app options",
-          icon: "cog-outline",
-          route: "Settings",
-        },
-        {
-          title: "About",
-          subtitle: "About Cephalon Tobran",
-          icon: "information-outline",
-          route: "About",
-        },
-      ],
-    }),
+      }
+    },
   })
 </script>
