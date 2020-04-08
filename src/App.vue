@@ -65,6 +65,12 @@
               route: "Dashboard",
             },
             {
+              title: this.$i18n.t("mainMenu.warframes.title"),
+              subtitle: this.$i18n.t("mainMenu.warframes.subtitle"),
+              icon: "account-details-outline",
+              route: "Warframes",
+            },
+            {
               title: this.$i18n.t("mainMenu.options.title"),
               subtitle: this.$i18n.t("mainMenu.options.subtitle"),
               icon: "cog-outline",

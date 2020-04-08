@@ -11,6 +11,14 @@ const routes = [
     component: DashboardView,
   },
   {
+    path: "/warframes",
+    name: "Warframes",
+    component: () =>
+      import(
+        /* webpackChunkName: "warframes" */ "../views/collectibles/warframes.vue"
+      ),
+  },
+  {
     path: "/about",
     name: "About",
     component: () =>
