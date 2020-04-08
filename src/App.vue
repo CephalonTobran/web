@@ -16,7 +16,7 @@
           exact
         >
           <v-list-item-avatar>
-            <v-icon>mdi-{{ menuItem.icon }}</v-icon>
+            <v-icon>{{ "mdi-" + menuItem.icon }}</v-icon>
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title>{{ menuItem.title }}</v-list-item-title>
