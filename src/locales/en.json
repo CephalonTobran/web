@@ -29,19 +29,19 @@
   },
   "mainMenu": {
     "about": {
-      "subtitle": "About this cephalon",
+      "description": "About this cephalon",
       "title": "About"
     },
     "dashboard": {
-      "subtitle": "Overview of progress",
+      "description": "Overview of progress",
       "title": "Dashboard"
     },
     "options": {
-      "subtitle": "Change cephalon options",
+      "description": "Change cephalon options",
       "title": "Options"
     },
     "warframes": {
-      "subtitle": "List of Warframes",
+      "description": "List of Warframes",
       "title": "Warframes"
     }
   },
