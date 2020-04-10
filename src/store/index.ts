@@ -11,7 +11,7 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    mainMenuVisibility(state, visibility?: boolean | undefined) {
+    mainMenuVisibility(state, visibility?: boolean) {
       // Toggle state if not specifically defined
       if (visibility === undefined)
         state.mainMenuIsVisible = !state.mainMenuIsVisible
