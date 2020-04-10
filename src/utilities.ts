@@ -7,6 +7,7 @@
  * @returns
  */
 export function percentage(number: number, total: number) {
+  if (total < 1) return 0
   if (number < 0) number = 0
   return Math.floor((number / total) * 100)
 }

@@ -8,6 +8,14 @@ export default new Vuex.Store({
 
   state: {
     mainMenuIsVisible: false,
+
+    collectibles: {
+      warframes: {
+        total: 42,
+        constructed: 18,
+        mastered: 7,
+      },
+    },
   },
 
   mutations: {

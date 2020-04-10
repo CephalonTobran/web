@@ -8,15 +8,17 @@
       "short": "Tobran"
     }
   },
+  "collectibles": {
+    "warframes": "warframe | warframes"
+  },
   "dashboard": {
-    "heading": "This is the dashboard, waiting for some content.",
-    "warframes": {
+    "heading": "Dashboard",
+    "collectibleSummary": {
       "all": "all the",
-      "constructed": "You have not constructed any warframes yet | You have only constructed {n} warframe | You have constructed {n} warframes",
-      "mastered": "You have not mastered any warframes yet | You have only mastered {n} warframe | You have mastered {n} warframes",
-      "remaining": "You have collected all the warframes | You have just {n} warframe left to collect | You have {n} warframes left to collect",
-      "title": "Warframes",
-      "total": "I am not aware of any warframes existing. This is not right. | I am aware of only 1 warframe. This seems wrong. | Warframe offers {n} warframes to collect"
+      "constructed": "You have not constructed any {pluralCollectibleName} yet | You have only constructed {count} {singularCollectibleName} | You have constructed {count} {pluralCollectibleName}",
+      "mastered": "You have not mastered any {pluralCollectibleName} yet | You have only mastered {count} {singularCollectibleName} | You have mastered {count} {pluralCollectibleName}",
+      "remaining": "You have collected all the {pluralCollectibleName} | You have just {count} {singularCollectibleName} left to collect | You have {count} {pluralCollectibleName} left to collect",
+      "total": "I am not aware of any {pluralCollectibleName} existing. This is not right. | I am aware of only {singularCollectibleName} warframe. This seems wrong. | Warframe offers {count} {pluralCollectibleName} to collect"
     }
   },
   "error": {
