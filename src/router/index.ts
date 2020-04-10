@@ -7,12 +7,12 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: "/",
-    name: "Dashboard",
+    name: "dashboard",
     component: DashboardView,
   },
   {
     path: "/warframes",
-    name: "Warframes",
+    name: "warframes",
     component: () =>
       import(
         /* webpackChunkName: "warframes" */ "../views/collectibles/warframes.vue"
@@ -20,13 +20,13 @@ const routes = [
   },
   {
     path: "/about",
-    name: "About",
+    name: "about",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/general/about.vue"),
   },
   {
     path: "/options",
-    name: "Options",
+    name: "options",
     component: () =>
       import(/* webpackChunkName: "options" */ "../views/general/options.vue"),
   },
