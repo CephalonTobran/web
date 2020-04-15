@@ -11,12 +11,31 @@ const routes = [
     component: DashboardView,
   },
   {
-    path: "/warframes",
+    path: "/collectibles",
+    name: "collectibles",
+    component: () =>
+      import(
+        /* webpackChunkName: "collectibles" */ "../views/collectibles/index.vue"
+      ),
+  },
+  {
+    path: "/collectibles/warframes",
     name: "warframes",
     component: () =>
       import(
         /* webpackChunkName: "warframes" */ "../views/collectibles/warframes.vue"
       ),
+    children: [
+      {
+        path: ":warframe",
+        name: "warframe",
+        component: () =>
+          import(
+            /* webpackChunkName: "warframe" */ "../views/collectibles/warframe.vue"
+          ),
+        props: true,
+      },
+    ],
   },
   {
     path: "/about",
@@ -32,7 +51,7 @@ const routes = [
   },
   {
     path: "*",
-    name: "404",
+    name: "error404",
     component: () =>
       import(/* webpackChunkName: "error-404" */ "../views/errors/404.vue"),
   },

@@ -1,6 +1,6 @@
 <template>
-  <div class="dashboard">
-    <h1>{{ $t("dashboard.heading") }}</h1>
+  <div class="collectibles">
+    <h1>{{ $t("collectibles.heading") }}</h1>
 
     <collectibles-category-summary
       category="warframes"
@@ -13,7 +13,7 @@
   import CollectiblesCategorySummary from "@/components/CollectiblesCategorySummary.vue"
 
   export default Vue.extend({
-    name: "Dashboard",
+    name: "Collectibles",
 
     components: {
       CollectiblesCategorySummary,

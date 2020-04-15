@@ -6,10 +6,17 @@ import store from "./store"
 import vuetify from "./plugins/vuetify"
 import i18n from "./plugins/i18n"
 
+// Vue.config.productionTip = false
+
 new Vue({
   router,
   store,
   vuetify,
   i18n,
+
+  created: function () {
+    this.$store.dispatch("loadWarframes")
+  },
+
   render: h => h(App),
 }).$mount("#app")
