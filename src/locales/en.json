@@ -55,5 +55,13 @@
   },
   "warframes": {
     "heading": "{count} Warframes"
+  },
+  "sort": {
+    "sortBy": "Sort by",
+    "name": "Name",
+    "introduced": "Patch introduced",
+    "masteryRequirement": "Mastery requirement",
+    "prime": "Prime",
+    "vaulted": "Vaulted status"
   }
 }

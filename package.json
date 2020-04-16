@@ -87,7 +87,7 @@
           "ignoreNodes": [
             "v-icon"
           ],
-          "ignorePattern": "^mdi-[a-z-]+$"
+          "ignorePattern": "^[-#:()& ]+$"
         }
       ]
     },

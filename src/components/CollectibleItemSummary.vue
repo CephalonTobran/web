@@ -18,7 +18,7 @@
         </template>
       </v-img>
       <v-toolbar :color="hover ? 'accent' : 'secondary'" dense flat>
-        <v-toolbar-title class="capitalized">{{ name }}</v-toolbar-title>
+        <v-toolbar-title>{{ name }}</v-toolbar-title>
       </v-toolbar>
     </v-card>
   </v-hover>
@@ -52,9 +52,3 @@
     },
   })
 </script>
-
-<style scoped>
-  .capitalized {
-    text-transform: capitalize;
-  }
-</style>

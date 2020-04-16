@@ -1,7 +1,12 @@
 import Vue from "vue"
 import Vuex from "vuex"
 import database from "@/services/DatabaseService"
-import { Warframe } from "@/types/collectibles"
+import {
+  Warframe,
+  convertToWarframe,
+  WarframeSortCriteria,
+  CompareWarframesBy,
+} from "@/types/collectibles"
 import { initFirestorePersistence } from "@/services/FirebaseServices"
 
 Vue.use(Vuex)
@@ -15,6 +20,7 @@ export default new Vuex.Store({
     offlinePersistenceIsEnabled: false,
 
     warframes: [],
+    sortWarframesBy: WarframeSortCriteria.name,
   },
 
   getters: {
@@ -52,6 +58,16 @@ export default new Vuex.Store({
       )
       state.warframes.splice(index, 1)
     },
+
+    SORT_WARFRAMES(
+      state,
+      criteria: WarframeSortCriteria = state.sortWarframesBy
+    ) {
+      state.sortWarframesBy = criteria
+      state.warframes.sort((warframeA: Warframe, WarframeB: Warframe) =>
+        CompareWarframesBy(state.sortWarframesBy, warframeA, WarframeB)
+      )
+    },
   },
 
   actions: {
@@ -79,42 +95,28 @@ export default new Vuex.Store({
       database
         .collection("warframes")
         .orderBy("name")
-        .onSnapshot(function (snapshot) {
-          snapshot.docChanges().forEach(function (change) {
+        .onSnapshot(snapshot => {
+          let needToSort = false
+
+          snapshot.docChanges().forEach(change => {
             if (change.type === "added") {
-              const warframe: Warframe = {
-                databaseID: change.doc.id,
-                uniqueName: change.doc.data().uniqueName,
-                name: change.doc.data().name,
-                image: change.doc.data().image,
-                description: change.doc.data().description,
-                masteryRequirement: change.doc.data().masteryRequirement,
-                introduced: change.doc.data().introduced,
-                wikiURL: change.doc.data().wikiURL,
-                isPrime: change.doc.data().isPrime,
-                isVaulted: change.doc.data().isVaulted,
-              }
-              context.commit("ADD_WARFRAME", warframe)
-            }
-            if (change.type === "modified") {
-              const warframe: Warframe = {
-                databaseID: change.doc.id,
-                uniqueName: change.doc.data().uniqueName,
-                name: change.doc.data().name,
-                image: change.doc.data().image,
-                description: change.doc.data().description,
-                masteryRequirement: change.doc.data().masteryRequirement,
-                introduced: change.doc.data().introduced,
-                wikiURL: change.doc.data().wikiURL,
-                isPrime: change.doc.data().isPrime,
-                isVaulted: change.doc.data().isVaulted,
-              }
-              context.commit("UPDATE_WARFRAME", warframe)
-            }
-            if (change.type === "removed") {
+              context.commit(
+                "ADD_WARFRAME",
+                convertToWarframe(change.doc.id, change.doc.data())
+              )
+              needToSort = true
+            } else if (change.type === "modified") {
+              context.commit(
+                "UPDATE_WARFRAME",
+                convertToWarframe(change.doc.id, change.doc.data())
+              )
+              needToSort = true
+            } else if (change.type === "removed") {
               context.commit("DELETE_WARFRAME", change.doc.id)
             }
           })
+
+          if (needToSort) context.commit("SORT_WARFRAMES")
         })
     },
   },
