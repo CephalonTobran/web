@@ -14,7 +14,7 @@
 
     methods: {
       toggleMainMenu() {
-        this.$store.commit("mainMenuVisibility")
+        this.$store.commit("SET_MAIN_MENU_VISIBILITY")
       },
     },
   })

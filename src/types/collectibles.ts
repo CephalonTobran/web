@@ -14,6 +14,7 @@ export class WarframeList extends Array<Warframe> {}
  * @interface Warframe
  */
 export interface Warframe {
+  databaseID: string
   uniqueName: string
   name: string
   image: string

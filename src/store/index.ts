@@ -2,6 +2,7 @@ import Vue from "vue"
 import Vuex from "vuex"
 import database from "@/services/DatabaseService"
 import { Warframe } from "@/types/collectibles"
+import { initFirestorePersistence } from "@/services/FirebaseServices"
 
 Vue.use(Vuex)
 
@@ -11,56 +12,108 @@ export default new Vuex.Store({
   state: {
     mainMenuIsVisible: false,
 
+    offlinePersistenceIsEnabled: false,
+
     warframes: [],
-    warframesAreLoaded: false,
   },
 
   getters: {
     totalWarframes: state => {
-      if (!state.warframesAreLoaded) return 0
-      else return state.warframes.length
+      return state.warframes.length
     },
   },
 
   mutations: {
-    mainMenuVisibility(state, visibility?: boolean) {
+    SET_DATABASE_PERSISTENCE_AVAILABILITY(state, availability: boolean) {
+      state.offlinePersistenceIsEnabled = availability
+    },
+
+    SET_MAIN_MENU_VISIBILITY(state, visibility?: boolean) {
       // Toggle state if not specifically defined
       if (visibility === undefined)
         state.mainMenuIsVisible = !state.mainMenuIsVisible
       else state.mainMenuIsVisible = visibility
     },
 
-    addWarframe(state, warframe: Warframe) {
+    ADD_WARFRAME(state, warframe: Warframe) {
       state.warframes.push(warframe)
-      if (!state.warframesAreLoaded) state.warframesAreLoaded = true
     },
 
-    setWarframes(state, warframes: Array<Warframe>) {
-      state.warframes = warframes
-      state.warframesAreLoaded = true
+    UPDATE_WARFRAME(state, updatedWarframe: Warframe) {
+      const index = state.warframes.findIndex(
+        warframe => warframe.databaseID === updatedWarframe.databaseID
+      )
+      state.warframes.splice(index, 1, updatedWarframe)
+    },
+
+    DELETE_WARFRAME(state, id: string) {
+      const index = state.warframes.findIndex(
+        warframe => warframe.databaseID === id
+      )
+      state.warframes.splice(index, 1)
     },
   },
 
   actions: {
-    loadWarframes(context) {
+    enableDatabasePersistence(context) {
+      initFirestorePersistence()
+        .then(() => {
+          context.commit("SET_DATABASE_PERSISTENCE_AVAILABILITY", true)
+        })
+        .catch(error => {
+          context.commit("SET_DATABASE_PERSISTENCE_AVAILABILITY", false)
+
+          if (error.code === "failed-precondition") {
+            console.error(
+              "Offline data persistence is disabled because multiple tabs are open."
+            )
+          } else if (error.code === "unimplemented") {
+            console.error(
+              "Offline data persistence is disabled because this browser does not support all of the required features."
+            )
+          }
+        })
+    },
+
+    listenToWarframes(context) {
       database
         .collection("warframes")
         .orderBy("name")
-        .get()
-        .then(querySnapshot => {
-          querySnapshot.forEach(query => {
-            const warframe: Warframe = {
-              uniqueName: query.data().uniqueName,
-              name: query.data().name,
-              image: query.data().image,
-              description: query.data().description,
-              masteryRequirement: query.data().masteryRequirement,
-              introduced: query.data().introduced,
-              wikiURL: query.data().wikiURL,
-              isPrime: query.data().isPrime,
-              isVaulted: query.data().isVaulted,
+        .onSnapshot(function (snapshot) {
+          snapshot.docChanges().forEach(function (change) {
+            if (change.type === "added") {
+              const warframe: Warframe = {
+                databaseID: change.doc.id,
+                uniqueName: change.doc.data().uniqueName,
+                name: change.doc.data().name,
+                image: change.doc.data().image,
+                description: change.doc.data().description,
+                masteryRequirement: change.doc.data().masteryRequirement,
+                introduced: change.doc.data().introduced,
+                wikiURL: change.doc.data().wikiURL,
+                isPrime: change.doc.data().isPrime,
+                isVaulted: change.doc.data().isVaulted,
+              }
+              context.commit("ADD_WARFRAME", warframe)
             }
-            context.commit("addWarframe", warframe)
+            if (change.type === "modified") {
+              const warframe: Warframe = {
+                databaseID: change.doc.id,
+                uniqueName: change.doc.data().uniqueName,
+                name: change.doc.data().name,
+                image: change.doc.data().image,
+                description: change.doc.data().description,
+                masteryRequirement: change.doc.data().masteryRequirement,
+                introduced: change.doc.data().introduced,
+                wikiURL: change.doc.data().wikiURL,
+                isPrime: change.doc.data().isPrime,
+                isVaulted: change.doc.data().isVaulted,
+              }
+              context.commit("UPDATE_WARFRAME", warframe)
+            }
+            if (change.type === "removed") {
+              context.commit("DELETE_WARFRAME", change.doc.id)
+            }
           })
         })
     },

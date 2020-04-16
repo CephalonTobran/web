@@ -68,7 +68,7 @@
           return this.$store.state.mainMenuIsVisible
         },
         set: function (visibility: boolean) {
-          this.$store.commit("mainMenuVisibility", visibility)
+          this.$store.commit("SET_MAIN_MENU_VISIBILITY", visibility)
         },
       },
     },

@@ -21,8 +21,17 @@ export function initFirebase() {
   FirebaseIsInitialized = true
 }
 
+export let FirestoreIsInitialized = false
+
 export function initFirestore(): Firebase.firestore.Firestore {
   if (!FirebaseIsInitialized) initFirebase()
 
-  return Firebase.firestore()
+  const db = Firebase.firestore()
+  FirestoreIsInitialized = true
+
+  return db
+}
+
+export function initFirestorePersistence() {
+  return Firebase.firestore().enablePersistence({ synchronizeTabs: true })
 }
