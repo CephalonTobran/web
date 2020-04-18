@@ -5,18 +5,20 @@
         <v-flex xs12 sm8 md4>
           <v-card class="elevation-6">
             <v-toolbar color="error" flat>
-              <v-toolbar-title>{{ $t("error.404.title") }}</v-toolbar-title>
+              <v-toolbar-title>{{
+                $t("pages.error.404.title")
+              }}</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
-              {{ $t("error.404.message") }}
+              {{ $t("pages.error.404.message") }}
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn text color="warning" @click="goBack">
-                {{ $t("error.404.back") }}
+                {{ $t("pages.error.404.back") }}
               </v-btn>
               <v-btn text color="success" :to="{ name: 'Dashboard' }" replace>
-                {{ $t("error.404.dashboard") }}
+                {{ $t("pages.error.404.dashboard") }}
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -27,7 +29,9 @@
 </template>
 
 <script lang="ts">
-  export default {
+  import Vue from "vue"
+
+  export default Vue.extend({
     name: "Error404",
 
     methods: {
@@ -37,5 +41,5 @@
           : this.$router.replace("/")
       },
     },
-  }
+  })
 </script>

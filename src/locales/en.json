@@ -1,7 +1,4 @@
 {
-  "about": {
-    "heading": "About @:brand.name.full"
-  },
   "brand": {
     "name": {
       "full": "Cephalon Tobran",
@@ -13,24 +10,14 @@
     "constructed": "You have not constructed any {pluralCollectibleName} yet | You have only constructed {count} {singularCollectibleName} | You have constructed {count} {pluralCollectibleName}",
     "mastered": "You have not mastered any {pluralCollectibleName} yet | You have only mastered {count} {singularCollectibleName} | You have mastered {count} {pluralCollectibleName}",
     "remaining": "You have collected all the {pluralCollectibleName} | You have just {count} {singularCollectibleName} left to collect | You have {count} {pluralCollectibleName} left to collect",
-    "total": "I lack any data on what {pluralCollectibleName} are available | I am attempting to retrieve the list of {pluralCollectibleName}... | Warframe offers {count} {pluralCollectibleName} to collect"
+    "total": "Warframe offers {total} {pluralCollectibleName} to collect"
   },
   "collectibles": {
-    "heading": "Collectible Items"
-  },
-  "dashboard": {
-    "heading": "Dashboard"
-  },
-  "error": {
-    "404": {
-      "back": "Go back",
-      "dashboard": "Go to the Dashboard",
-      "message": "This is not the Cephalon you were looking for.",
-      "title": "Error: Not Found"
-    }
-  },
-  "items": {
     "warframes": "warframe | warframes"
+  },
+  "collectiblesList": {
+    "heading": "All {total} {collectibleName}",
+    "headingWithFilter": "{filtered} of {total} {collectibleName}"
   },
   "mainMenu": {
     "about": {
@@ -50,18 +37,48 @@
       "title": "Warframes"
     }
   },
-  "options": {
-    "heading": "Options for @:brand.name.full"
+  "pages": {
+    "about": {
+      "heading": "About @:brand.name.full"
+    },
+    "collectibles": {
+      "heading": "Collectible Items"
+    },
+    "dashboard": {
+      "heading": "Dashboard"
+    },
+    "error": {
+      "404": {
+        "back": "Go back",
+        "dashboard": "Go to the Dashboard",
+        "message": "This is not the Cephalon you were looking for.",
+        "title": "Error: Not Found"
+      }
+    },
+    "options": {
+      "heading": "Options for @:brand.name.full"
+    }
   },
-  "warframes": {
-    "heading": "{count} Warframes"
-  },
-  "sort": {
-    "sortBy": "Sort by",
-    "name": "Name",
-    "introduced": "Patch introduced",
-    "masteryRequirement": "Mastery requirement",
-    "prime": "Prime",
-    "vaulted": "Vaulted status"
+  "searchSortFilter": {
+    "filterLabel": {
+      "mastery": "MR Required",
+      "variant": {
+        "original": "Original",
+        "prime": "Prime",
+        "umbra": "Umbra"
+      },
+      "vaultedStatus": {
+        "notVaulted": "Out of the vault",
+        "vaulted": "In the vault"
+      }
+    },
+    "header": "Search, Sort and Filter",
+    "searchLabel": "Search by name",
+    "sortLabel": "Sort by",
+    "sortTypes": {
+      "introduced": "Patch introduced",
+      "masteryRequirement": "Mastery Rank required",
+      "name": "Name"
+    }
   }
 }

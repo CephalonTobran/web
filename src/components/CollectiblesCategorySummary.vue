@@ -5,7 +5,7 @@
       max-width="400px"
       :src="require('@/assets/img/dashboard/' + category + '.jpeg')"
     >
-      <v-card-title class="capitalized">{{ title }}</v-card-title>
+      <v-card-title>{{ title }}</v-card-title>
     </v-img>
 
     <!-- <v-progress-linear
@@ -18,12 +18,9 @@
       background-opacity="0.6"
     ></v-progress-linear> -->
 
-    <!--<v-card-text class="text--primary">
-      {{
-        $tc("collectibleCategorySummary.total", total, {
-          pluralCollectibleName: pluralCollectibleName,
-        })
-      }} <br />
+    <v-card-text class="text--primary">
+      {{ totalCollectiblesText
+      }}<!--<br />
       {{
         $tc("collectibleCategorySummary.remaining", remaining, {
           count: remainingCountString,
@@ -44,13 +41,15 @@
           singularCollectibleName: singularCollectibleName,
           pluralCollectibleName: pluralCollectibleName,
         })
-      }}
-    </v-card-text> -->
+      }} -->
+    </v-card-text>
   </v-card>
 </template>
 
 <script lang="ts">
   import Vue from "vue"
+  import { TranslateResult } from "vue-i18n"
+  import capitalize from "lodash/capitalize"
   // import { percentage } from "../utilities"
 
   export default Vue.extend({
@@ -64,12 +63,18 @@
     },
 
     computed: {
-      title(): string {
-        return `${this.category} (${this.total})`
+      title(): TranslateResult {
+        return capitalize(this.$i18n.tc(`collectibles.${this.category}`, 2))
       },
 
       total(): number {
-        return this.$store.getters["totalWarframes"]
+        return this.$store.getters[`${this.category}/total`]
+      },
+      totalCollectiblesText(): TranslateResult {
+        return this.$t("collectibleCategorySummary.total", {
+          total: this.total,
+          pluralCollectibleName: this.pluralCollectibleName,
+        })
       },
       // remaining(): number {
       //   return this.total - this.constructed
@@ -81,12 +86,14 @@
       //   return this.$store.state.collectibles[this.category].mastered
       // },
 
-      // singularCollectibleName(): string {
-      //   return this.$i18n.tc("items." + this.category, 1).toString()
-      // },
-      // pluralCollectibleName(): string {
-      //   return this.$i18n.tc("items." + this.category, this.total).toString()
-      // },
+      singularCollectibleName(): string {
+        return this.$i18n.tc("collectibles." + this.category, 1).toString()
+      },
+      pluralCollectibleName(): string {
+        return this.$i18n
+          .tc("collectibles." + this.category, this.total)
+          .toString()
+      },
 
       // remainingCountString(): string {
       //   return this.countString(this.remaining)
@@ -115,9 +122,3 @@
     // },
   })
 </script>
-
-<style scoped>
-  .capitalized {
-    text-transform: capitalize;
-  }
-</style>

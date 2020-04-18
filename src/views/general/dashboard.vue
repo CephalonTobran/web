@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <h1>{{ $t("dashboard.heading") }}</h1>
+    <h1>{{ $t("pages.dashboard.heading") }}</h1>
 
     <collectibles-category-summary
       category="warframes"

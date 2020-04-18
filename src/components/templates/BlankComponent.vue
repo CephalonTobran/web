@@ -1,13 +1,11 @@
 <template>
-  <div class="options">
-    <h1>{{ $t("pages.options.heading") }}</h1>
-  </div>
+  <div></div>
 </template>
 
 <script lang="ts">
   import Vue from "vue"
 
   export default Vue.extend({
-    name: "Options",
+    name: "Template",
   })
 </script>

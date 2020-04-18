@@ -1,13 +1,7 @@
 import Vue from "vue"
 import Vuex from "vuex"
-import database from "@/services/DatabaseService"
-import {
-  Warframe,
-  convertToWarframe,
-  WarframeSortCriteria,
-  CompareWarframesBy,
-} from "@/types/collectibles"
 import { initFirestorePersistence } from "@/services/FirebaseServices"
+import warframes from "./collectibles/warframes"
 
 Vue.use(Vuex)
 
@@ -18,15 +12,6 @@ export default new Vuex.Store({
     mainMenuIsVisible: false,
 
     offlinePersistenceIsEnabled: false,
-
-    warframes: [],
-    sortWarframesBy: WarframeSortCriteria.name,
-  },
-
-  getters: {
-    totalWarframes: state => {
-      return state.warframes.length
-    },
   },
 
   mutations: {
@@ -39,34 +24,6 @@ export default new Vuex.Store({
       if (visibility === undefined)
         state.mainMenuIsVisible = !state.mainMenuIsVisible
       else state.mainMenuIsVisible = visibility
-    },
-
-    ADD_WARFRAME(state, warframe: Warframe) {
-      state.warframes.push(warframe)
-    },
-
-    UPDATE_WARFRAME(state, updatedWarframe: Warframe) {
-      const index = state.warframes.findIndex(
-        warframe => warframe.databaseID === updatedWarframe.databaseID
-      )
-      state.warframes.splice(index, 1, updatedWarframe)
-    },
-
-    DELETE_WARFRAME(state, id: string) {
-      const index = state.warframes.findIndex(
-        warframe => warframe.databaseID === id
-      )
-      state.warframes.splice(index, 1)
-    },
-
-    SORT_WARFRAMES(
-      state,
-      criteria: WarframeSortCriteria = state.sortWarframesBy
-    ) {
-      state.sortWarframesBy = criteria
-      state.warframes.sort((warframeA: Warframe, WarframeB: Warframe) =>
-        CompareWarframesBy(state.sortWarframesBy, warframeA, WarframeB)
-      )
     },
   },
 
@@ -90,34 +47,9 @@ export default new Vuex.Store({
           }
         })
     },
+  },
 
-    listenToWarframes(context) {
-      database
-        .collection("warframes")
-        .orderBy("name")
-        .onSnapshot(snapshot => {
-          let needToSort = false
-
-          snapshot.docChanges().forEach(change => {
-            if (change.type === "added") {
-              context.commit(
-                "ADD_WARFRAME",
-                convertToWarframe(change.doc.id, change.doc.data())
-              )
-              needToSort = true
-            } else if (change.type === "modified") {
-              context.commit(
-                "UPDATE_WARFRAME",
-                convertToWarframe(change.doc.id, change.doc.data())
-              )
-              needToSort = true
-            } else if (change.type === "removed") {
-              context.commit("DELETE_WARFRAME", change.doc.id)
-            }
-          })
-
-          if (needToSort) context.commit("SORT_WARFRAMES")
-        })
-    },
+  modules: {
+    warframes: warframes,
   },
 })

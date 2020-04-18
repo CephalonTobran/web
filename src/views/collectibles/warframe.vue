@@ -5,7 +5,9 @@
 </template>
 
 <script lang="ts">
-  export default {
+  import Vue from "vue"
+
+  export default Vue.extend({
     name: "Warframes",
 
     props: {
@@ -20,5 +22,5 @@
         return this.warframe
       },
     },
-  }
+  })
 </script>

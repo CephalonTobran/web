@@ -16,7 +16,7 @@ new Vue({
 
   created: function () {
     this.$store.dispatch("enableDatabasePersistence")
-    this.$store.dispatch("listenToWarframes")
+    this.$store.dispatch("warframes/listen", "warframes")
   },
 
   render: h => h(App),

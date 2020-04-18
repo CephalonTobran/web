@@ -31,7 +31,7 @@
     name: "CollectibleItemSummary",
 
     props: {
-      warframe: {
+      collectible: {
         type: Object,
         required: true,
       },
@@ -39,15 +39,15 @@
 
     computed: {
       name(): string {
-        return this.warframe.name
+        return this.collectible.name
       },
 
       image(): string {
-        return `https://cdn.warframestat.us/img/${this.warframe.image}`
+        return `https://cdn.warframestat.us/img/${this.collectible.image}`
       },
 
       wikiURL(): string {
-        return this.warframe.wikiURL
+        return this.collectible.wikiURL
       },
     },
   })

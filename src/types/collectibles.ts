@@ -1,19 +1,21 @@
-/**
- * An array of warframes.
- *
- * @export
- * @class WarframeList
- * @extends {Array<Warframe>}
- */
-export class WarframeList extends Array<Warframe> {}
+import { compareStrings, compareNumbers } from "@/utilities"
 
 /**
- * A warframe object.
+ * An array of collectibles.
  *
  * @export
- * @interface Warframe
+ * @class CollectiblesList
+ * @extends {Array<Collectible>}
  */
-export interface Warframe {
+export class CollectiblesList extends Array<Collectible> {}
+
+/**
+ * An individual collectible
+ *
+ * @export
+ * @interface Collectible
+ */
+export interface Collectible {
   databaseID: string
   name: string
   uniqueName: string
@@ -21,23 +23,22 @@ export interface Warframe {
   description: string
   masteryRequirement: number
   introduced: string
-  wikiURL?: string
-  isPrime?: boolean
-  isVaulted?: boolean
+  wikiURL: string
+  isVaulted: boolean
 }
 
 /**
- * Convert a Firestore DocumentData object to a Warframe object
+ * Convert a Firestore DocumentData object to a Collectible object
  *
  * @export
  * @param {string} id Database document identifier
  * @param {firebase.firestore.DocumentData} data The data from Firestore
- * @returns {Warframe} Returns a warframe object
+ * @returns {Collectible} Returns a Collectible object
  */
-export function convertToWarframe(
+export function convertToCollectible(
   id: string,
   data: firebase.firestore.DocumentData
-): Warframe {
+): Collectible {
   return {
     databaseID: id,
     uniqueName: data.uniqueName,
@@ -47,58 +48,73 @@ export function convertToWarframe(
     masteryRequirement: data.masteryRequirement,
     introduced: data.introduced,
     wikiURL: data.wikiURL,
-    isPrime: data.isPrime,
     isVaulted: data.isVaulted,
   }
 }
 
 /**
- *  Criteria by which Warframes can be sorted
+ *  Criteria by which Collectibles can be sorted
  *
  * @export
  * @enum {number}
  */
-export enum WarframeSortCriteria {
+export enum CollectibleSortFields {
   name,
   introduced,
   masteryRequirement,
-  prime,
-  vaulted,
 }
 
 /**
- * Compare function for Array.prototype.sort
+ * Compare function for Array.prototype.sort()
  *
  * @export
- * @param {WarframeSortCriteria} field
- * @param {Warframe} warframeA
- * @param {Warframe} warframeB
+ * @param {CollectibleSortFields} field
+ * @param {boolean} ascending
+ * @param {Collectible} collectibleA
+ * @param {Collectible} collectibleB
  * @returns {number}
  */
-export function CompareWarframesBy(
-  field: WarframeSortCriteria,
-  warframeA: Warframe,
-  warframeB: Warframe
+export function sortCollectiblesBy(
+  field: CollectibleSortFields,
+  ascending: boolean,
+  collectibleA: Collectible,
+  collectibleB: Collectible
 ): number {
-  if (field === WarframeSortCriteria.name) {
-    if (warframeA.name < warframeB.name) return -1
-    else if (warframeA.name > warframeB.name) return 1
-    else return 0
-  } else if (field === WarframeSortCriteria.introduced) {
-    if (warframeA.introduced < warframeB.introduced) return -1
-    else if (warframeA.introduced > warframeB.introduced) return 1
-    else return 0
-  } else if (field === WarframeSortCriteria.masteryRequirement) {
-    return warframeA.masteryRequirement - warframeB.masteryRequirement
-  } else if (field === WarframeSortCriteria.prime) {
-    if (warframeA.isPrime && !warframeB.isPrime) return -1
-    else if (!warframeA.isPrime && warframeB.isPrime) return 1
-    else return 0
-  } else if (field === WarframeSortCriteria.vaulted) {
-    if (!warframeA.isVaulted && warframeB.isVaulted) return 1
-    else if (warframeA.isVaulted && !warframeB.isVaulted) return -1
-    else return 0
+  let sortResult: number
+
+  switch (field) {
+    case CollectibleSortFields.name:
+      sortResult = compareStrings(
+        collectibleA.name,
+        collectibleB.name,
+        ascending
+      )
+      break
+
+    case CollectibleSortFields.introduced:
+      sortResult = compareStrings(
+        collectibleA.introduced,
+        collectibleB.introduced,
+        ascending
+      )
+      if (sortResult === 0)
+        sortResult = compareStrings(collectibleA.name, collectibleB.name)
+      break
+
+    case CollectibleSortFields.masteryRequirement:
+      sortResult = compareNumbers(
+        collectibleA.masteryRequirement,
+        collectibleB.masteryRequirement,
+        ascending
+      )
+      if (sortResult === 0)
+        sortResult = compareStrings(collectibleA.name, collectibleB.name)
+      break
+
+    default:
+      sortResult = 0
+      break
   }
 
-  return 0
+  return sortResult
 }
