@@ -1,6 +1,11 @@
 <template>
   <v-hover v-slot:default="{ hover }">
-    <v-card class="mx-auto" max-width="512px" :raised="hover ? true : false">
+    <v-card
+      :class="hover ? 'mt-n1' : undefined"
+      :elevation="hover ? 4 : 2"
+      class="mx-auto transition-swing"
+      max-width="512px"
+    >
       <v-img
         :src="image"
         max-width="512px"
