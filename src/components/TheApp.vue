@@ -11,6 +11,8 @@
       </v-container>
     </v-content>
     <!-- End Main Content -->
+
+    <scroll-to-top-button />
   </v-app>
 </template>
 
@@ -18,6 +20,7 @@
   import Vue from "vue"
   import TheMainMenu from "@/components/TheMainMenu.vue"
   import TheAppBar from "@/components/TheAppBar.vue"
+  import ScrollToTopButton from "@/components/ScrollToTopButton.vue"
 
   export default Vue.extend({
     name: "App",
@@ -25,6 +28,7 @@
     components: {
       TheMainMenu,
       TheAppBar,
+      ScrollToTopButton,
     },
   })
 </script>
