@@ -4,7 +4,7 @@
 
 <script lang="ts">
   import Vue from "vue"
-  import CollectibleItemList from "@/components/CollectibleItemList.vue"
+  import CollectibleItemList from "@/components/Collectibles/CollectibleItemList.vue"
 
   export default Vue.extend({
     name: "Warframes",

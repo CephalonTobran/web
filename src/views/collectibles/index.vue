@@ -10,7 +10,7 @@
 
 <script lang="ts">
   import Vue from "vue"
-  import CollectiblesCategorySummary from "@/components/CollectiblesCategorySummary.vue"
+  import CollectiblesCategorySummary from "@/components/Collectibles/CollectiblesCategorySummary.vue"
 
   export default Vue.extend({
     name: "Collectibles",

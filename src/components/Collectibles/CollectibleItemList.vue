@@ -121,7 +121,7 @@
 </template>
 
 <script lang="ts">
-  import CollectibleItemSummary from "@/components/CollectibleItemSummary.vue"
+  import CollectibleItemSummary from "@/components/Collectibles/CollectibleItemSummary.vue"
   import PageHeading from "@/components/PageHeading.vue"
   import {
     Collectible,
