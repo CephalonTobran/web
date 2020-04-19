@@ -34,4 +34,4 @@ ehthumbs.db
 
 # Firebase
 .firebaserc
-firebase/*
+/firebase
