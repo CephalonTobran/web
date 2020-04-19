@@ -103,17 +103,11 @@
     </v-row>
 
     <v-row>
-      <v-col
+      <collectible-item-summary
         v-for="collectible in collectibles"
         :key="collectible.databaseID"
-        cols="12"
-        sm="6"
-        md="4"
-        lg="3"
-        xl="2"
-      >
-        <collectible-item-summary :collectible="collectible" />
-      </v-col>
+        :collectible="collectible"
+      />
     </v-row>
 
     <router-view />
