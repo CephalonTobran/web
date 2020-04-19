@@ -1,21 +1,23 @@
 <template>
-  <div class="dashboard">
-    <h1>{{ $t("pages.dashboard.heading") }}</h1>
+  <v-container id="dashboard">
+    <page-heading>{{ $t("pages.dashboard.heading") }}</page-heading>
 
-    <collectibles-category-summary
-      category="warframes"
-    ></collectibles-category-summary>
-  </div>
+    <v-row justify="center">
+      <collectibles-category-summary category="warframes" />
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
   import Vue from "vue"
+  import PageHeading from "@/components/PageHeading.vue"
   import CollectiblesCategorySummary from "@/components/Collectibles/CollectiblesCategorySummary.vue"
 
   export default Vue.extend({
     name: "Dashboard",
 
     components: {
+      PageHeading,
       CollectiblesCategorySummary,
     },
   })

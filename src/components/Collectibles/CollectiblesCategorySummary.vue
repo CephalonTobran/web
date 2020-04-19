@@ -1,21 +1,25 @@
 <template>
-  <v-hover v-slot:default="{ hover }">
-    <v-card
-      :class="hover ? 'mt-n1' : undefined"
-      :elevation="hover ? 4 : 2"
-      class="mx-auto transition-swing"
-      max-width="400px"
-      :to="{ name: category }"
-    >
-      <v-img
-        class="white--text align-end"
+  <v-col cols="12" sm="6" md="4">
+    <v-hover v-slot:default="{ hover }">
+      <v-card
+        :class="hover ? 'mt-n1' : undefined"
+        :elevation="hover ? 4 : 2"
+        class="mx-auto transition-swing"
         max-width="400px"
-        :src="require('@/assets/img/dashboard/' + category + '.jpeg')"
+        :to="{ name: category }"
       >
-        <v-card-title>{{ title }}</v-card-title>
-      </v-img>
+        <v-img
+          :src="require('@/assets/img/dashboard/' + category + '.jpeg')"
+          max-width="400px"
+          max-height="225px"
+          aspect-ratio="1.7777"
+          position="top center"
+          class="white--text align-end"
+        >
+          <v-card-title>{{ title }}</v-card-title>
+        </v-img>
 
-      <!-- <v-progress-linear
+        <!-- <v-progress-linear
       absolute
       :value="masteredPercentage"
       :buffer-value="constructedPercentage"
@@ -25,9 +29,9 @@
       background-opacity="0.6"
     ></v-progress-linear> -->
 
-      <v-card-text class="text--primary">
-        {{ totalCollectiblesText
-        }}<!--<br />
+        <v-card-text class="text--primary">
+          {{ totalCollectiblesText }}
+          <!--<br />
       {{
         $tc("collectibleCategorySummary.remaining", remaining, {
           count: remainingCountString,
@@ -49,9 +53,10 @@
           pluralCollectibleName: pluralCollectibleName,
         })
       }} -->
-      </v-card-text>
-    </v-card>
-  </v-hover>
+        </v-card-text>
+      </v-card>
+    </v-hover>
+  </v-col>
 </template>
 
 <script lang="ts">

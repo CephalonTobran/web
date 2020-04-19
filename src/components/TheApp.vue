@@ -1,16 +1,12 @@
 <template>
   <v-app>
-    <the-main-menu></the-main-menu>
+    <the-main-menu />
 
-    <the-app-bar></the-app-bar>
+    <the-app-bar />
 
-    <!-- Main Content -->
     <v-content>
-      <v-container fluid>
-        <router-view></router-view>
-      </v-container>
+      <router-view />
     </v-content>
-    <!-- End Main Content -->
 
     <scroll-to-top-button />
   </v-app>

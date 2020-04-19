@@ -1,11 +1,14 @@
 <template>
   <v-container id="collectible-item-list">
-    <page-heading :text="headingText" />
+    <page-heading>{{ headingText }}</page-heading>
 
     <v-row>
       <v-col cols="12">
         <v-expansion-panels accordion hover>
-          <v-expansion-panel id="sort-panel" @click="scrollToSearchPanel">
+          <v-expansion-panel
+            id="search-sort-filter-panel"
+            @click="scrollToPageHeading"
+          >
             <v-expansion-panel-header color="secondary">
               {{ $t("searchSortFilter.header") }}
             </v-expansion-panel-header>
@@ -296,7 +299,7 @@
         this.sortAscending = !this.sortAscending
       },
 
-      scrollToSearchPanel() {
+      scrollToPageHeading() {
         this.$vuetify.goTo("#page-heading", {
           duration: 300,
           easing: "easeInOutCubic",
