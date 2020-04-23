@@ -64,63 +64,6 @@
     "vuetify-loader": "^1.4.3",
     "webpack": "^4.42.1"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/recommended",
-      "eslint:recommended",
-      "@vue/typescript/recommended",
-      "@vue/prettier",
-      "@vue/prettier/@typescript-eslint",
-      "plugin:vue-i18n/recommended"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 2020
-    },
-    "rules": {
-      "vue-i18n/no-dynamic-keys": "warn",
-      "vue-i18n/no-raw-text": [
-        "warn",
-        {
-          "ignoreNodes": [
-            "v-icon"
-          ],
-          "ignorePattern": "^[-#:()& ]+$"
-        }
-      ]
-    },
-    "settings": {
-      "vue-i18n": {
-        "localeDir": "./locales/*.json"
-      }
-    },
-    "overrides": [
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)",
-          "**/tests/unit/**/*.spec.{j,t}s?(x)"
-        ],
-        "env": {
-          "jest": true
-        }
-      }
-    ]
-  },
-  "prettier": {
-    "semi": false,
-    "endOfLine": "lf",
-    "arrowParens": "avoid",
-    "vueIndentScriptAndStyle": true
-  },
-  "browserslist": [
-    "last 2 versions"
-  ],
-  "jest": {
-    "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel"
-  },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
