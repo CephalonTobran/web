@@ -23,6 +23,7 @@
       "readme",
       "ts",
       "vscode",
+      "vue-cli",
       "yarn"
     ],
     "files.eol": "\n",
