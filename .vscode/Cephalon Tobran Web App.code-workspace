@@ -21,6 +21,7 @@
       "jest",
       "lint",
       "readme",
+      "ts",
       "vscode",
       "yarn"
     ],
