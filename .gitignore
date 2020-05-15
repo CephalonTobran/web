@@ -22,7 +22,7 @@ yarn-error.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-!.vscode/spellright.dict
+!.vscode/*.code-workspace
 
 # Windows thumbnail cache files
 Thumbs.db
@@ -31,3 +31,7 @@ ehthumbs.db
 
 # Folder config file
 [Dd]esktop.ini
+
+# Firebase
+.firebaserc
+/.firebase
