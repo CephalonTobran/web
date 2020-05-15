@@ -33,7 +33,7 @@ export default new Vuex.Store({
         .then(() => {
           context.commit("SET_DATABASE_PERSISTENCE_AVAILABILITY", true)
         })
-        .catch(error => {
+        .catch((error) => {
           context.commit("SET_DATABASE_PERSISTENCE_AVAILABILITY", false)
 
           if (error.code === "failed-precondition") {

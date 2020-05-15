@@ -19,5 +19,5 @@ new Vue({
     this.$store.dispatch("warframes/listen", "warframes")
   },
 
-  render: h => h(App),
+  render: (h) => h(App),
 }).$mount("#app")

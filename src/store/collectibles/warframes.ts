@@ -76,8 +76,8 @@ const collectibles = {
       database
         .collection(collection)
         .orderBy("name")
-        .onSnapshot(snapshot => {
-          snapshot.docChanges().forEach(change => {
+        .onSnapshot((snapshot) => {
+          snapshot.docChanges().forEach((change) => {
             if (change.type === "added") {
               context.commit(
                 "ADD",
