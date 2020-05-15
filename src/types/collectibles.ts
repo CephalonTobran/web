@@ -4,10 +4,10 @@ import { compareStrings, compareNumbers } from "@/utilities"
  * An array of collectibles.
  *
  * @export
- * @class CollectiblesList
+ * @type CollectiblesList
  * @extends {Array<Collectible>}
  */
-export class CollectiblesList extends Array<Collectible> {}
+export type CollectiblesList = Array<Collectible>
 
 /**
  * An individual collectible
@@ -22,7 +22,7 @@ export interface Collectible {
   image: string
   description: string
   masteryRequirement: number
-  introduced: string
+  introduced: number
   wikiURL: string
   isVaulted: boolean
 }
@@ -92,7 +92,7 @@ export function sortCollectiblesBy(
       break
 
     case CollectibleSortFields.introduced:
-      sortResult = compareStrings(
+      sortResult = compareNumbers(
         collectibleA.introduced,
         collectibleB.introduced,
         ascending
