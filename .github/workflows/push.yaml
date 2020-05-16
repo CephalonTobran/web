@@ -1,0 +1,49 @@
+name: Push
+
+on:
+  push:
+    branches-ignore:
+      # master is covered under the release workflow
+      - master
+
+    paths-ignore:
+      - ".*/**" # files in root "dot folders" (.github)
+      - "!.github/workflows/push.yaml"
+      - "LICENSE"
+      - "**.md"
+
+jobs:
+  quality:
+    name: Quality Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node version 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Get Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache Dependencies
+        uses: actions/cache@v1
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile --colors
+
+      - name: Lint
+        run: yarn lint --no-fix --colors
+
+      - name: Unit Test
+        run: yarn test:unit --collectCoverage --ci --colors
