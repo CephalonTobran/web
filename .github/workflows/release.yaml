@@ -47,6 +47,17 @@ jobs:
       - name: Unit Test
         run: yarn test:unit --collectCoverage --ci --colors
 
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v2.1
+        with:
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+          git_tag_gpgsign: true
+          git_push_gpgsign: true
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+          PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
       - name: Semantic Release
         run: yarn release --colors
         env:
