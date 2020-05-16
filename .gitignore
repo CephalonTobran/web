@@ -6,6 +6,7 @@ node_modules/
 # Additional test output directories
 /tests/e2e/videos/
 /tests/e2e/screenshots/
+/tests/reports/
 
 # Local env files
 .env.local
