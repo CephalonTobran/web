@@ -32,9 +32,7 @@
     "vue-i18n/no-raw-text": [
       "warn",
       {
-        "ignoreNodes": [
-          "v-icon"
-        ],
+        "ignoreNodes": ["v-icon"],
         "ignorePattern": "^[-#:()& ]+$"
       }
     ]
@@ -46,10 +44,7 @@
   },
   "overrides": [
     {
-      "files": [
-        "**/__tests__/*.{j,t}s?(x)",
-        "**/tests/unit/**/*.spec.{j,t}s?(x)"
-      ],
+      "files": ["**/__tests__/*.{j,t}s?(x)", "**/tests/unit/**/*.spec.{j,t}s?(x)"],
       "env": {
         "jest": true
       }

@@ -1,18 +1,7 @@
 <template>
-  <v-navigation-drawer
-    v-model="isVisible"
-    app
-    temporary
-    color="secondary"
-    overlay-opacity="0.8"
-  >
+  <v-navigation-drawer v-model="isVisible" app temporary color="secondary" overlay-opacity="0.8">
     <v-list nav two-line>
-      <v-list-item
-        v-for="(item, i) in items"
-        :key="i"
-        :to="{ name: item.route }"
-        exact
-      >
+      <v-list-item v-for="(item, i) in items" :key="i" :to="{ name: item.route }" exact>
         <v-list-item-avatar>
           <v-icon>{{ "mdi-" + item.icon }}</v-icon>
         </v-list-item-avatar>

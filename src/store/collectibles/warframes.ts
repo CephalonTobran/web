@@ -45,8 +45,7 @@ const collectibles = {
 
     UPDATE(state: state, updatedCollectible: Collectible) {
       const index = state.list.findIndex(
-        (collectible: Collectible) =>
-          collectible.databaseID === updatedCollectible.databaseID
+        (collectible: Collectible) => collectible.databaseID === updatedCollectible.databaseID
       )
       state.list.splice(index, 1, updatedCollectible)
     },
@@ -60,12 +59,7 @@ const collectibles = {
 
     SORT(state: state) {
       state.list.sort((collectibleA: Collectible, collectibleB: Collectible) =>
-        sortCollectiblesBy(
-          CollectibleSortFields.name,
-          true,
-          collectibleA,
-          collectibleB
-        )
+        sortCollectiblesBy(CollectibleSortFields.name, true, collectibleA, collectibleB)
       )
     },
   },
@@ -79,15 +73,9 @@ const collectibles = {
         .onSnapshot((snapshot) => {
           snapshot.docChanges().forEach((change) => {
             if (change.type === "added") {
-              context.commit(
-                "ADD",
-                convertToCollectible(change.doc.id, change.doc.data())
-              )
+              context.commit("ADD", convertToCollectible(change.doc.id, change.doc.data()))
             } else if (change.type === "modified") {
-              context.commit(
-                "UPDATE",
-                convertToCollectible(change.doc.id, change.doc.data())
-              )
+              context.commit("UPDATE", convertToCollectible(change.doc.id, change.doc.data()))
             } else if (change.type === "removed") {
               context.commit("DELETE", change.doc.id)
             }

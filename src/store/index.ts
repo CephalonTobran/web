@@ -21,8 +21,7 @@ export default new Vuex.Store({
 
     SET_MAIN_MENU_VISIBILITY(state, visibility?: boolean) {
       // Toggle state if not specifically defined
-      if (visibility === undefined)
-        state.mainMenuIsVisible = !state.mainMenuIsVisible
+      if (visibility === undefined) state.mainMenuIsVisible = !state.mainMenuIsVisible
       else state.mainMenuIsVisible = visibility
     },
   },
@@ -37,9 +36,7 @@ export default new Vuex.Store({
           context.commit("SET_DATABASE_PERSISTENCE_AVAILABILITY", false)
 
           if (error.code === "failed-precondition") {
-            console.error(
-              "Offline data persistence is disabled because multiple tabs are open."
-            )
+            console.error("Offline data persistence is disabled because multiple tabs are open.")
           } else if (error.code === "unimplemented") {
             console.error(
               "Offline data persistence is disabled because this browser does not support all of the required features."

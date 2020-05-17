@@ -103,9 +103,7 @@
         return this.$i18n.tc("collectibles." + this.category, 1).toString()
       },
       pluralCollectibleName(): string {
-        return this.$i18n
-          .tc("collectibles." + this.category, this.total)
-          .toString()
+        return this.$i18n.tc("collectibles." + this.category, this.total).toString()
       },
 
       // remainingCountString(): string {

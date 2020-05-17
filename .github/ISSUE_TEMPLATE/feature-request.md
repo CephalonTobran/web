@@ -1,10 +1,9 @@
 ---
 name: Feature Request
 about: Suggest an idea for this project
-title: 'Feature: '
-labels: 'Feature :+1:'
-assignees: ''
-
+title: "Feature: "
+labels: "Feature :+1:"
+assignees: ""
 ---
 
 **Is your feature request related to a problem? Please describe.**
