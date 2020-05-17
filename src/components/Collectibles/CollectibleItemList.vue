@@ -109,6 +109,7 @@
 </template>
 
 <script lang="ts">
+  import Vue from "vue"
   import CollectibleItemSummary from "@/components/Collectibles/CollectibleItemSummary.vue"
   import PageHeading from "@/components/PageHeading.vue"
   import {
@@ -120,7 +121,7 @@
   import { TranslateResult } from "vue-i18n"
   import capitalize from "lodash/capitalize"
 
-  export default {
+  export default Vue.extend({
     name: "CollectibleItemList",
 
     components: {
@@ -281,5 +282,5 @@
         })
       },
     },
-  }
+  })
 </script>
