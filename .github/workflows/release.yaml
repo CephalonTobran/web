@@ -52,6 +52,8 @@ jobs:
         with:
           git_user_signingkey: true
           git_commit_gpgsign: true
+          git_committer_name: Cephalon Tobran
+          git_committer_email: tobran@cephalontobran.com
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_SIGNING_KEY }}
           PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
@@ -61,6 +63,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
           GIT_AUTHOR_NAME: Cephalon Tobran
-          GIT_AUTHOR_EMAIL: tobran@cephalon-tobran
+          GIT_AUTHOR_EMAIL: tobran@cephalontobran.com
           GIT_COMMITTER_NAME: Cephalon Tobran
-          GIT_COMMITTER_EMAIL: tobran@cephalon-tobran
+          GIT_COMMITTER_EMAIL: tobran@cephalontobran.com
