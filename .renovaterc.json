@@ -1,0 +1,44 @@
+{
+  "extends": ["config:base"],
+  "assignees": ["@EdRands"],
+  "branchPrefix": "build/deps/",
+  "labels": ["build"],
+  "masterIssue": true,
+  "masterIssueAutoclose": true,
+  "semanticCommits": true,
+  "semanticCommitType": "build",
+  "semanticCommitScope": "packages",
+  "commitMessageAction": "upgrade",
+  "schedule": "before 7am",
+  "packageRules": [
+    {
+      "depTypeList": ["dependencies"],
+      "groupName": "app dependencies",
+      "prPriority": 10
+    },
+    {
+      "depTypeList": ["devDependencies"],
+      "groupName": "dev dependencies",
+      "prPriority": 0
+    },
+    {
+      "depTypeList": ["devDependencies"],
+      "packagePatterns": ["semantic-release"],
+      "groupName": "semantic-release dependencies",
+      "prPriority": 1
+    },
+    {
+      "depTypeList": ["devDependencies"],
+      "packagePatterns": ["eslint"],
+      "groupName": "ESLint dependencies",
+      "prPriority": -1
+    }
+  ],
+  "prCreation": "not-pending",
+  "stabilityDays": 2,
+  "timezone": "America/Vancouver",
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "assignees": ["@EdRands"]
+  }
+}
