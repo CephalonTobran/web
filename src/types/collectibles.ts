@@ -84,21 +84,12 @@ export function sortCollectiblesBy(
 
   switch (field) {
     case CollectibleSortFields.name:
-      sortResult = compareStrings(
-        collectibleA.name,
-        collectibleB.name,
-        ascending
-      )
+      sortResult = compareStrings(collectibleA.name, collectibleB.name, ascending)
       break
 
     case CollectibleSortFields.introduced:
-      sortResult = compareNumbers(
-        collectibleA.introduced,
-        collectibleB.introduced,
-        ascending
-      )
-      if (sortResult === 0)
-        sortResult = compareStrings(collectibleA.name, collectibleB.name)
+      sortResult = compareNumbers(collectibleA.introduced, collectibleB.introduced, ascending)
+      if (sortResult === 0) sortResult = compareStrings(collectibleA.name, collectibleB.name)
       break
 
     case CollectibleSortFields.masteryRequirement:
@@ -107,8 +98,7 @@ export function sortCollectiblesBy(
         collectibleB.masteryRequirement,
         ascending
       )
-      if (sortResult === 0)
-        sortResult = compareStrings(collectibleA.name, collectibleB.name)
+      if (sortResult === 0) sortResult = compareStrings(collectibleA.name, collectibleB.name)
       break
 
     default:

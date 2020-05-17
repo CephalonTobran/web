@@ -5,10 +5,7 @@
     <v-row>
       <v-col cols="12">
         <v-expansion-panels accordion hover>
-          <v-expansion-panel
-            id="search-sort-filter-panel"
-            @click="scrollToPageHeading"
-          >
+          <v-expansion-panel id="search-sort-filter-panel" @click="scrollToPageHeading">
             <v-expansion-panel-header color="secondary">
               {{ $t("searchSortFilter.header") }}
             </v-expansion-panel-header>
@@ -80,9 +77,7 @@
                       label
                       value="1"
                       :disabled="filters.variant !== 'prime'"
-                      >{{
-                        $t("searchSortFilter.filterLabel.vaultedStatus.vaulted")
-                      }}</v-chip
+                      >{{ $t("searchSortFilter.filterLabel.vaultedStatus.vaulted") }}</v-chip
                     >
                     <v-chip
                       filter
@@ -90,11 +85,7 @@
                       label
                       value="0"
                       :disabled="filters.variant !== 'prime'"
-                      >{{
-                        $t(
-                          "searchSortFilter.filterLabel.vaultedStatus.notVaulted"
-                        )
-                      }}</v-chip
+                      >{{ $t("searchSortFilter.filterLabel.vaultedStatus.notVaulted") }}</v-chip
                     >
                   </v-chip-group>
                 </v-col>
@@ -161,9 +152,7 @@
             sortType: "numeric",
           },
           {
-            text: this.$t(
-              "searchSortFilter.sortTypes.masteryRequirement"
-            ).toString(),
+            text: this.$t("searchSortFilter.sortTypes.masteryRequirement").toString(),
             value: CollectibleSortFields.masteryRequirement,
             sortType: "numeric",
           },
@@ -184,9 +173,7 @@
 
         if (this.searchText) {
           collectibles = collectibles.filter((collectible: Collectible) =>
-            collectible.name
-              .toLowerCase()
-              .includes(this.searchText.toLowerCase())
+            collectible.name.toLowerCase().includes(this.searchText.toLowerCase())
           )
         }
 
@@ -223,24 +210,14 @@
           }
         }
 
-        if (
-          this.filters.variant === "prime" &&
-          this.filters.vaulted !== undefined
-        ) {
+        if (this.filters.variant === "prime" && this.filters.vaulted !== undefined) {
           collectibles = collectibles.filter(
-            (collectible: Collectible) =>
-              collectible.isVaulted == this.filters.vaulted
+            (collectible: Collectible) => collectible.isVaulted == this.filters.vaulted
           )
         }
 
-        collectibles.sort(
-          (collectibleA: Collectible, collectibleB: Collectible) =>
-            sortCollectiblesBy(
-              this.sortBy,
-              this.sortAscending,
-              collectibleA,
-              collectibleB
-            )
+        collectibles.sort((collectibleA: Collectible, collectibleB: Collectible) =>
+          sortCollectiblesBy(this.sortBy, this.sortAscending, collectibleA, collectibleB)
         )
 
         return collectibles
@@ -287,10 +264,7 @@
           return this.sortAscending
             ? "mdi-sort-numeric-ascending-variant"
             : "mdi-sort-numeric-descending-variant"
-        else
-          return this.sortAscending
-            ? "mdi-sort-ascending"
-            : "mdi-sort-descending"
+        else return this.sortAscending ? "mdi-sort-ascending" : "mdi-sort-descending"
       },
     },
 

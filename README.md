@@ -34,7 +34,7 @@ At this point, I am not accepting contributions to this project.
 
 This project is licensed under the terms of the [MIT license][license].
 
-[warframe-referral]: https://www.warframe.com/signup?referrerId=5974e89e3ade7fff31557c7e (Warframe referral)
-[cephalon-tobran-org]: https://github.com/CephalonTobran (Cephalon Tobran org on GitHub)
-[license]: ./LICENSE (License)
-[license-badge]: https://img.shields.io/github/license/CephalonTobran/web?style=flat-square (License badge)
+[warframe-referral]: https://www.warframe.com/signup?referrerId=5974e89e3ade7fff31557c7e "Warframe referral"
+[cephalon-tobran-org]: https://github.com/CephalonTobran "Cephalon Tobran org on GitHub"
+[license]: ./LICENSE "License"
+[license-badge]: https://img.shields.io/github/license/CephalonTobran/web?style=flat-square "License badge"

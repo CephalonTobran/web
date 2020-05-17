@@ -21,11 +21,7 @@ export function percentage(number: number, total: number) {
  * @param {boolean} [sortAscending=true]
  * @returns {number}
  */
-export function compareStrings(
-  stringA: string,
-  stringB: string,
-  sortAscending = true
-): number {
+export function compareStrings(stringA: string, stringB: string, sortAscending = true): number {
   if (stringA < stringB) return sortAscending ? -1 : 1
   else if (stringA > stringB) return sortAscending ? 1 : -1
   else return 0
@@ -40,10 +36,6 @@ export function compareStrings(
  * @param {boolean} [sortAscending=true]
  * @returns {number}
  */
-export function compareNumbers(
-  number1: number,
-  number2: number,
-  sortAscending = true
-): number {
+export function compareNumbers(number1: number, number2: number, sortAscending = true): number {
   return sortAscending ? number1 - number2 : number2 - number1
 }
