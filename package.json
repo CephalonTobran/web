@@ -14,7 +14,9 @@
     "lint": "vue-cli-service lint",
     "commit": "git-cz",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "dependencies": {
     "core-js": "3.6.5",
@@ -28,7 +30,8 @@
     "vue-property-decorator": "8.4.2",
     "vue-router": "3.1.6",
     "vuetify": "2.2.28",
-    "vuex": "3.4.0"
+    "vuex": "3.4.0",
+    "snyk": "^1.321.0"
   },
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
@@ -88,5 +91,6 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  }
+  },
+  "snyk": true
 }
