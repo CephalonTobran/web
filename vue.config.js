@@ -4,7 +4,7 @@ module.exports = {
   },
 
   pwa: {
-    name: "Cephalon Tobras",
+    name: "Cephalon Tobran",
     themeColor: "#4D93BA",
     msTileColor: "#000000",
   },
