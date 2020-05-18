@@ -3,6 +3,7 @@
   "env": {
     "node": true
   },
+  "plugins": ["eslint-plugin-tsdoc"],
   "extends": [
     "plugin:vue/recommended",
     "eslint:recommended",
@@ -28,6 +29,7 @@
         }
       }
     ],
+    "tsdoc/syntax": "warn",
     "vue-i18n/no-dynamic-keys": "warn",
     "vue-i18n/no-raw-text": [
       "warn",
@@ -44,7 +46,10 @@
   },
   "overrides": [
     {
-      "files": ["**/__tests__/*.{j,t}s?(x)", "**/tests/unit/**/*.spec.{j,t}s?(x)"],
+      "files": [
+        "**/__tests__/*.{j,t}s?(x)",
+        "**/tests/unit/**/*.spec.{j,t}s?(x)"
+      ],
       "env": {
         "jest": true
       }

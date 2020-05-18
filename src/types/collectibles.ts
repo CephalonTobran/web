@@ -2,18 +2,11 @@ import { compareStrings, compareNumbers } from "@/utilities"
 
 /**
  * An array of collectibles.
- *
- * @export
- * @type CollectiblesList
- * @extends {Array<Collectible>}
  */
 export type CollectiblesList = Array<Collectible>
 
 /**
  * An individual collectible
- *
- * @export
- * @interface Collectible
  */
 export interface Collectible {
   databaseID: string
@@ -30,10 +23,9 @@ export interface Collectible {
 /**
  * Convert a Firestore DocumentData object to a Collectible object
  *
- * @export
- * @param {string} id Database document identifier
- * @param {firebase.firestore.DocumentData} data The data from Firestore
- * @returns {Collectible} Returns a Collectible object
+ * @param id - Database document identifier
+ * @param data - The data from Firestore
+ * @returns - Returns a Collectible object
  */
 export function convertToCollectible(
   id: string,
@@ -54,9 +46,6 @@ export function convertToCollectible(
 
 /**
  *  Criteria by which Collectibles can be sorted
- *
- * @export
- * @enum {number}
  */
 export enum CollectibleSortFields {
   name,
@@ -66,13 +55,6 @@ export enum CollectibleSortFields {
 
 /**
  * Compare function for Array.prototype.sort()
- *
- * @export
- * @param {CollectibleSortFields} field
- * @param {boolean} ascending
- * @param {Collectible} collectibleA
- * @param {Collectible} collectibleB
- * @returns {number}
  */
 export function sortCollectiblesBy(
   field: CollectibleSortFields,
