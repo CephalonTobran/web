@@ -15,6 +15,8 @@
     "commit": "git-cz",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
     "release": "semantic-release",
+    "firebase": "firebase",
+    "firebase:deploy": "firebase deploy --only hosting",
     "snyk-protect": "snyk protect"
   },
   "dependencies": {

@@ -1,11 +1,24 @@
 {
+  "hosting": {
+    "public": "dist",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
   "firestore": {
     "rules": "./.firebase/firestore.rules",
     "indexes": "./.firebase/firestore.indexes.json"
   },
   "emulators": {
     "firestore": {
-      "port": "8090"
+      "port": 8090
+    },
+    "hosting": {
+      "port": 5000
     }
   }
 }
