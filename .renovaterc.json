@@ -7,9 +7,9 @@
   "masterIssueAutoclose": true,
   "semanticCommits": true,
   "semanticCommitType": "build",
+  "semanticPrefix": "build",
   "semanticCommitScope": "packages",
   "commitMessageAction": "upgrade",
-  "schedule": "before 7am",
   "packageRules": [
     {
       "depTypeList": ["dependencies"],
@@ -41,7 +41,7 @@
     }
   ],
   "prCreation": "not-pending",
-  "stabilityDays": 2,
+  "stabilityDays": 1,
   "timezone": "America/Vancouver",
   "vulnerabilityAlerts": {
     "labels": ["security"],
