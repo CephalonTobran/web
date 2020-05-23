@@ -23,6 +23,12 @@
     },
     {
       "depTypeList": ["devDependencies"],
+      "packagePatterns": ["^@vue/cli"],
+      "groupName": "Vue CLI dependencies",
+      "prPriority": 1
+    },
+    {
+      "depTypeList": ["devDependencies"],
       "packagePatterns": ["semantic-release"],
       "groupName": "semantic-release dependencies",
       "prPriority": 1
