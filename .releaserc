@@ -65,10 +65,6 @@
             "release": false
           },
           {
-            "type": "build",
-            "release": false
-          },
-          {
             "type": "ci",
             "release": false
           }
