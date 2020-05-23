@@ -6,50 +6,7 @@
       "@semantic-release/commit-analyzer",
       {
         "preset": "conventionalcommits",
-        "presetConfig": {
-          "types": [
-            {
-              "type": "feat",
-              "section": "Features"
-            },
-            {
-              "type": "fix",
-              "section": "Bug Fixes"
-            },
-            {
-              "type": "perf",
-              "section": "Performance"
-            },
-            {
-              "type": "docs",
-              "section": "Documentation"
-            },
-            {
-              "type": "chore",
-              "hidden": true
-            },
-            {
-              "type": "style",
-              "hidden": true
-            },
-            {
-              "type": "refactor",
-              "hidden": true
-            },
-            {
-              "type": "test",
-              "hidden": true
-            },
-            {
-              "type": "build",
-              "hidden": true
-            },
-            {
-              "type": "ci",
-              "hidden": true
-            }
-          ]
-        },
+        "presetConfig": {},
         "releaseRules": [
           {
             "type": "{fix|build|chore}",
@@ -87,18 +44,23 @@
             },
             {
               "type": "perf",
-              "section": "Performance"
+              "section": "Performance Improvements"
             },
             {
-              "type": "docs",
-              "section": "Documentation"
+              "type": "build",
+              "scope": "packages",
+              "section": "External Dependency Updates"
             },
             {
               "type": "chore",
               "hidden": true
             },
             {
-              "type": "style",
+              "type": "ci",
+              "hidden": true
+            },
+            {
+              "type": "docs",
               "hidden": true
             },
             {
@@ -106,15 +68,11 @@
               "hidden": true
             },
             {
+              "type": "style",
+              "hidden": true
+            },
+            {
               "type": "test",
-              "hidden": true
-            },
-            {
-              "type": "build",
-              "hidden": true
-            },
-            {
-              "type": "ci",
               "hidden": true
             }
           ]
