@@ -38,6 +38,6 @@ jobs:
         run: yarn build --ci --colors
 
       - name: Deploy to Firebase
-        run: yarn firebase:deploy --ci --colors
+        run: yarn firebase:deploy --non-interactive
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
