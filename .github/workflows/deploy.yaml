@@ -24,7 +24,7 @@ jobs:
 
       - name: Cache Dependencies
         uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -35,9 +35,16 @@ jobs:
         run: yarn install --frozen-lockfile --colors
 
       - name: Build
-        run: yarn build --ci --colors
+        run: yarn build --colors
+
+      - name: Cache Firebase
+        uses: actions/cache@v1
+        id: firebase-cache
+        with:
+          path: ./.firebase
+          key: ${{ runner.os }}-firebase
 
       - name: Deploy to Firebase
-        run: yarn firebase:deploy --ci --colors
+        run: yarn firebase:deploy --non-interactive
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
