@@ -35,7 +35,7 @@ jobs:
         run: yarn install --frozen-lockfile --colors
 
       - name: Build
-        run: yarn build --ci --colors
+        run: yarn build --colors
 
       - name: Deploy to Firebase
         run: yarn firebase:deploy --non-interactive
