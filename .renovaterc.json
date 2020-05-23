@@ -7,9 +7,9 @@
   "masterIssueAutoclose": true,
   "semanticCommits": true,
   "semanticCommitType": "build",
+  "semanticPrefix": "build",
   "semanticCommitScope": "packages",
   "commitMessageAction": "upgrade",
-  "schedule": "before 7am",
   "packageRules": [
     {
       "depTypeList": ["dependencies"],
@@ -20,6 +20,12 @@
       "depTypeList": ["devDependencies"],
       "groupName": "dev dependencies",
       "prPriority": 0
+    },
+    {
+      "depTypeList": ["devDependencies"],
+      "packagePatterns": ["^@vue/cli"],
+      "groupName": "Vue CLI dependencies",
+      "prPriority": 1
     },
     {
       "depTypeList": ["devDependencies"],
@@ -35,7 +41,7 @@
     }
   ],
   "prCreation": "not-pending",
-  "stabilityDays": 2,
+  "stabilityDays": 1,
   "timezone": "America/Vancouver",
   "vulnerabilityAlerts": {
     "labels": ["security"],
