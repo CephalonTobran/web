@@ -7,12 +7,10 @@ import {
   sortCollectiblesBy,
 } from "@/types/collectibles"
 
-// eslint-disable-next-line @typescript-eslint/class-name-casing
 interface context {
   commit: (mutation: string, payload?: string | Collectible) => void
 }
 
-// eslint-disable-next-line @typescript-eslint/class-name-casing
 interface state {
   dbCollection: string
   list: CollectiblesList
