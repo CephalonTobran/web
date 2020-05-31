@@ -1,6 +1,6 @@
 import { percentage } from "@/utilities"
 
-describe("Percentage", () => {
+describe("percentage", () => {
   it("returns the correct percentage", () => {
     const testResult = percentage(10, 50)
     expect(testResult).toStrictEqual(20)
