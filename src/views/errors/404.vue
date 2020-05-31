@@ -31,7 +31,7 @@
     name: "Error404",
 
     methods: {
-      goBack() {
+      goBack(): void {
         window.history.length > 1 ? this.$router.go(-1) : this.$router.replace("/")
       },
     },

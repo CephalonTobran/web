@@ -16,7 +16,7 @@ const FirebaseConfig = {
 
 export let FirebaseIsInitialized = false
 
-export function initFirebase() {
+export function initFirebase(): void {
   Firebase.initializeApp(FirebaseConfig)
   FirebaseIsInitialized = true
 }
@@ -32,6 +32,6 @@ export function initFirestore(): Firebase.firestore.Firestore {
   return db
 }
 
-export function initFirestorePersistence() {
+export function initFirestorePersistence(): Promise<void> {
   return Firebase.firestore().enablePersistence({ synchronizeTabs: true })
 }

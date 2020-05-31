@@ -1,7 +1,7 @@
 /**
  * Calculate the percentage of two numbers
  */
-export function percentage(number: number, total: number) {
+export function percentage(number: number, total: number): number {
   if (total < 1 || typeof total !== "number") return 0
   if (number < 0 || typeof number !== "number") number = 0
   return Math.floor((number / total) * 100)

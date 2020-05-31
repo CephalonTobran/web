@@ -35,7 +35,7 @@
         this.show = top > 500
       }, 500),
 
-      scrollToTop() {
+      scrollToTop(): void {
         this.$vuetify.goTo(30, {
           duration: 1000,
           easing: "easeInOutCubic",
