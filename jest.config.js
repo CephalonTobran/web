@@ -3,4 +3,7 @@ module.exports = {
   setupFilesAfterEnv: ["jest-extended", "expect-more-jest", "jest-chain"],
   coverageDirectory: "tests/reports/unit/coverage",
   errorOnDeprecated: true,
+  notify: true,
+  notifyMode: "failure-change",
+  clearMocks: true,
 }
