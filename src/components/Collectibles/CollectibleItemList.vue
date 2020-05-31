@@ -270,11 +270,11 @@
     },
 
     methods: {
-      toggleSortDirection() {
+      toggleSortDirection(): void {
         this.sortAscending = !this.sortAscending
       },
 
-      scrollToPageHeading() {
+      scrollToPageHeading(): void {
         this.$vuetify.goTo("#page-heading", {
           duration: 300,
           easing: "easeInOutCubic",

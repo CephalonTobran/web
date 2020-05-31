@@ -13,7 +13,7 @@
     name: "TheAppBar",
 
     methods: {
-      toggleMainMenu() {
+      toggleMainMenu(): void {
         this.$store.commit("SET_MAIN_MENU_VISIBILITY")
       },
     },

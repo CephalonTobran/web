@@ -53,10 +53,10 @@
 
     computed: {
       isVisible: {
-        get: function () {
+        get: function (): boolean {
           return this.$store.state.mainMenuIsVisible
         },
-        set: function (visibility: boolean) {
+        set: function (visibility: boolean): void {
           this.$store.commit("SET_MAIN_MENU_VISIBILITY", visibility)
         },
       },
