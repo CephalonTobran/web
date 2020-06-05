@@ -1,7 +1,6 @@
 import TheScrollToTopButton from "@/components/TheScrollToTopButton.vue"
 
 import { mount } from "@vue/test-utils"
-import "@testing-library/jest-dom"
 
 describe("scroll to top button component", () => {
   it("should be invisible initially", () => {
