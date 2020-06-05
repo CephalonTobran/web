@@ -5,7 +5,7 @@ module.exports = {
     "jest-chain",
     "@testing-library/jest-dom",
     "jest-extended",
-    "<rootDir>/tests/unit/setup/vue.ts",
+    "<rootDir>/tests/unit/_setup/vue.ts",
   ],
   coverageDirectory: "tests/reports/unit/coverage",
   errorOnDeprecated: true,
