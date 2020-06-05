@@ -2,6 +2,7 @@
   <v-fab-transition>
     <v-btn
       v-show="show"
+      id="page-scroll-to-top-button"
       v-scroll="onThrottledScroll"
       fab
       color="accent"
