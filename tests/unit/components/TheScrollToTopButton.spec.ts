@@ -2,7 +2,7 @@ import TheScrollToTopButton from "@/components/TheScrollToTopButton.vue"
 
 import { mount } from "@vue/test-utils"
 
-describe("scroll to top button component", () => {
+describe("TheScrollToTopButton component", () => {
   it("should be invisible initially", () => {
     const component = mount(TheScrollToTopButton)
     const button = component.get("#page-scroll-to-top-button").element

@@ -4,7 +4,7 @@ import TheAppBar from "@/components/TheAppBar.vue"
 import TheScrollToTopButton from "@/components/TheScrollToTopButton.vue"
 import { shallowMount } from "@vue/test-utils"
 
-describe("theApp component", () => {
+describe("TheApp component", () => {
   it("should load TheMainMenu component once", () => {
     const wrapper = shallowMount(TheApp)
 

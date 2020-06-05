@@ -1,7 +1,7 @@
 import PageHeading from "@/components/PageHeading.vue"
 import { shallowMount } from "@vue/test-utils"
 
-describe("page heading component", () => {
+describe("PageHeading component", () => {
   it("should display text", () => {
     const wrapper = shallowMount(PageHeading, {
       slots: {
