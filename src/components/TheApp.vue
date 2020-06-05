@@ -8,7 +8,7 @@
       <router-view />
     </v-content>
 
-    <scroll-to-top-button />
+    <the-scroll-to-top-button />
   </v-app>
 </template>
 
@@ -16,7 +16,7 @@
   import Vue from "vue"
   import TheMainMenu from "@/components/TheMainMenu.vue"
   import TheAppBar from "@/components/TheAppBar.vue"
-  import ScrollToTopButton from "@/components/ScrollToTopButton.vue"
+  import TheScrollToTopButton from "@/components/TheScrollToTopButton.vue"
 
   export default Vue.extend({
     name: "App",
@@ -24,7 +24,7 @@
     components: {
       TheMainMenu,
       TheAppBar,
-      ScrollToTopButton,
+      TheScrollToTopButton,
     },
   })
 </script>

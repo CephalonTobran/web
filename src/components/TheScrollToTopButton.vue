@@ -20,7 +20,7 @@
   import throttle from "lodash/throttle"
 
   export default Vue.extend({
-    name: "ScrollToTopButton",
+    name: "TheScrollToTopButton",
 
     data() {
       return {
