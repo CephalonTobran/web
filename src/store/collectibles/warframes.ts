@@ -57,7 +57,7 @@ const collectibles = {
 
     SORT(state: state) {
       state.list.sort((collectibleA: Collectible, collectibleB: Collectible) =>
-        sortCollectiblesBy(CollectibleSortFields.name, true, collectibleA, collectibleB)
+        sortCollectiblesBy(collectibleA, collectibleB, CollectibleSortFields.name)
       )
     },
   },
