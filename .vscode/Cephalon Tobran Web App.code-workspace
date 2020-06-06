@@ -32,6 +32,7 @@
       "yarn"
     ],
     "files.eol": "\n",
+    "git.inputValidationLength": 80,
     "githubPullRequests.defaultMergeMethod": "squash",
     "gitlens.codeLens.recentChange.enabled": false,
     "i18n-ally.enabledParsers": ["json"],
