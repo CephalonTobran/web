@@ -1,34 +1,44 @@
 import TheScrollToTopButton from "@/components/TheScrollToTopButton.vue"
 
-import { mount } from "@vue/test-utils"
+import { createLocalVue, mount, Wrapper } from "@vue/test-utils"
+import Vuetify from "vuetify"
 
 describe("TheScrollToTopButton component", () => {
-  it("should be invisible initially", () => {
-    const component = mount(TheScrollToTopButton)
-    const button = component.get("#page-scroll-to-top-button").element
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let wrapper: Wrapper<TheScrollToTopButton & { [key: string]: any }>
 
-    expect(component.vm.$data["show"]).toBe(false)
+  beforeEach(() => {
+    wrapper = mount(TheScrollToTopButton)
+  })
+
+  it("should be invisible initially", () => {
+    expect(wrapper.vm.show).toBe(false)
+
+    const button = wrapper.get("button").element
     expect(button).not.toBeVisible()
   })
 
-  it("should be visible when show is true", () => {
-    const component = mount(TheScrollToTopButton, {
-      data() {
-        return { show: true }
-      },
-    })
-    const button = component.get("#page-scroll-to-top-button").element
+  it("should toggle visibility", async () => {
+    await wrapper.setData({ show: true })
+    expect(wrapper.vm.show).toBe(true)
 
-    expect(component.vm.$data["show"]).toBe(true)
-    expect(button).toBeVisible()
+    expect(wrapper.get("button").element).toBeVisible()
+
+    await wrapper.setData({ show: false })
+    expect(wrapper.vm.show).toBe(false)
+
+    expect(wrapper.get("button").element).not.toBeVisible()
   })
 
-  it.todo(
-    "should respond to a button click"
-    /* , () => {
-    const component = mount(TheScrollToTopButton)
-    component.get("#page-scroll-to-top-button").trigger("click")
-    expect(component.vm.scrollToTop).toHaveBeenCalledTimes(1)
-  } */
-  )
+  it("should respond to a button click", async () => {
+    const localVue = createLocalVue()
+    const vuetify = new Vuetify()
+    wrapper = mount(TheScrollToTopButton, { localVue, vuetify })
+
+    jest.spyOn(wrapper.vm, "scrollToTop")
+    await wrapper.setData({ show: true })
+
+    await wrapper.get("button").trigger("click")
+    expect(wrapper.vm.scrollToTop).toHaveBeenCalledTimes(1)
+  })
 })
