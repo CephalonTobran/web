@@ -2,6 +2,7 @@ import CollectibleItemList from "@/components/Collectibles/CollectibleItemList.v
 import CollectibleItemSummary from "@/components/Collectibles/CollectibleItemSummary.vue"
 import { shallowMount, Wrapper } from "@vue/test-utils"
 import { CollectibleSortFields } from "@/types/collectibles"
+import { ObjectContainingAnything } from "../../_utility/utilities"
 
 type DummyCollectibleItem = {
   databaseID: string
@@ -15,7 +16,7 @@ type DummyCollectibleItemList = Array<DummyCollectibleItem>
 
 describe("CollectibleItemList component", () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let wrapper: Wrapper<CollectibleItemList & { [key: string]: any }>
+  let wrapper: Wrapper<CollectibleItemList & ObjectContainingAnything>
 
   const collectibleList: DummyCollectibleItemList = [
     {

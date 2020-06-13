@@ -1,11 +1,11 @@
 import TheScrollToTopButton from "@/components/TheScrollToTopButton.vue"
 
 import { createLocalVue, mount, Wrapper } from "@vue/test-utils"
+import { ObjectContainingAnything } from "../_utility/utilities"
 import Vuetify from "vuetify"
 
 describe("TheScrollToTopButton component", () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let wrapper: Wrapper<TheScrollToTopButton & { [key: string]: any }>
+  let wrapper: Wrapper<TheScrollToTopButton & ObjectContainingAnything>
 
   beforeEach(() => {
     wrapper = mount(TheScrollToTopButton)
