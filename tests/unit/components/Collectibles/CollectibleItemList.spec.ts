@@ -3,6 +3,9 @@ import CollectibleItemSummary from "@/components/Collectibles/CollectibleItemSum
 import { shallowMount, Wrapper } from "@vue/test-utils"
 import { CollectibleSortFields } from "@/types/collectibles"
 import { ObjectContainingAnything } from "../../_utility/utilities"
+import { shallowInitVuetify } from "../../_setup/vue"
+
+shallowInitVuetify()
 
 type DummyCollectibleItem = {
   databaseID: string

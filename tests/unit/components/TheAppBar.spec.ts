@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import TheAppBar from "@/components/TheAppBar.vue"
 import { shallowMount } from "@vue/test-utils"
+import { shallowInitVuetify } from "../_setup/vue"
+
+shallowInitVuetify()
 
 describe("TheAppBar component", () => {
   it("should display the app name", () => {

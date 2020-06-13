@@ -3,9 +3,8 @@ module.exports = {
   setupFilesAfterEnv: [
     "expect-more-jest",
     "jest-chain",
-    "@testing-library/jest-dom",
     "jest-extended",
-    "<rootDir>/tests/unit/_setup/vue.ts",
+    "@testing-library/jest-dom",
   ],
   coverageDirectory: "tests/reports/unit/coverage",
   errorOnDeprecated: true,

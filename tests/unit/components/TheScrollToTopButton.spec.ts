@@ -2,7 +2,10 @@ import TheScrollToTopButton from "@/components/TheScrollToTopButton.vue"
 
 import { createLocalVue, mount, Wrapper } from "@vue/test-utils"
 import { ObjectContainingAnything } from "../_utility/utilities"
+import { shallowInitVuetify } from "../_setup/vue"
 import Vuetify from "vuetify"
+
+shallowInitVuetify()
 
 describe("TheScrollToTopButton component", () => {
   let wrapper: Wrapper<TheScrollToTopButton & ObjectContainingAnything>

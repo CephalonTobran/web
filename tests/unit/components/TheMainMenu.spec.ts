@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import TheMainMenu from "@/components/TheMainMenu.vue"
 import { shallowMount } from "@vue/test-utils"
+import { shallowInitVuetify, mockI18n, mockStore } from "../_setup/vue"
+
+shallowInitVuetify()
 
 describe("TheAppBar component", () => {
   it("should display menu titles, descriptions and icons", () => {
@@ -24,12 +27,8 @@ describe("TheAppBar component", () => {
         }
       },
       mocks: {
-        $i18n: {
-          t: (key: string) => key,
-        },
-        $store: {
-          state: { mainMenuIsVisible: false },
-        },
+        $i18n: mockI18n,
+        $store: mockStore({ mainMenuIsVisible: false }),
       },
     })
 

@@ -1,6 +1,9 @@
 import CollectibleItemSummary from "@/components/Collectibles/CollectibleItemSummary.vue"
-import { mount } from "@vue/test-utils"
 import { Collectible } from "@/types/collectibles"
+import { mount } from "@vue/test-utils"
+import { shallowInitVuetify } from "../../_setup/vue"
+
+shallowInitVuetify()
 
 describe("CollectibleItemSummary component", () => {
   let dummyCollectible: Collectible

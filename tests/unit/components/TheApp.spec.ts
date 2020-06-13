@@ -3,6 +3,9 @@ import TheMainMenu from "@/components/TheMainMenu.vue"
 import TheAppBar from "@/components/TheAppBar.vue"
 import TheScrollToTopButton from "@/components/TheScrollToTopButton.vue"
 import { shallowMount } from "@vue/test-utils"
+import { shallowInitVuetify } from "../_setup/vue"
+
+shallowInitVuetify()
 
 describe("TheApp component", () => {
   describe("for unique child components", () => {
