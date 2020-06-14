@@ -1,5 +1,6 @@
 import database from "@/services/DatabaseService"
-import Firebase from "Firebase"
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import Firebase from "firebase/app"
 jest.mock("Firebase")
 
 describe("DatabaseService", () => {
