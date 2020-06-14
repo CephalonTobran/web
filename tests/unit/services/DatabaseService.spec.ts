@@ -1,6 +1,6 @@
 import database from "@/services/DatabaseService"
-jest.mock("Firebase")
 import { Firebase } from "@/services/FirebaseServices"
+jest.mock("Firebase")
 
 describe("DatabaseService", () => {
   it("database should be an instance of Firestore", () => {
