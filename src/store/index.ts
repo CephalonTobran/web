@@ -3,30 +3,30 @@ import Vuex from "vuex"
 import { initFirestorePersistence } from "@/services/FirebaseServices"
 import warframes from "./collectibles/warframes"
 
-interface state {
-  mainMenuIsVisible: boolean
+export interface State {
   offlinePersistenceIsEnabled: boolean
+  mainMenuIsVisible: boolean
 }
 
-interface context {
+export interface Context {
   commit: (mutation: string, payload?: boolean) => void
 }
 
 Vue.use(Vuex)
 
-export const state: state = {
-  mainMenuIsVisible: false,
+export const state: State = {
   offlinePersistenceIsEnabled: false,
+  mainMenuIsVisible: false,
 }
 
 export const getters = {}
 
 export const mutations = {
-  SET_DATABASE_PERSISTENCE_AVAILABILITY(state: state, availability: boolean): void {
+  SET_DATABASE_PERSISTENCE_AVAILABILITY(state: State, availability: boolean): void {
     state.offlinePersistenceIsEnabled = availability
   },
 
-  SET_MAIN_MENU_VISIBILITY(state: state, visibility?: boolean): void {
+  SET_MAIN_MENU_VISIBILITY(state: State, visibility?: boolean): void {
     // Toggle state if not specifically defined
     if (visibility === undefined) state.mainMenuIsVisible = !state.mainMenuIsVisible
     else state.mainMenuIsVisible = visibility
@@ -34,7 +34,7 @@ export const mutations = {
 }
 
 export const actions = {
-  enableDatabasePersistence(context: context): void {
+  enableDatabasePersistence(context: Context): void {
     initFirestorePersistence()
       .then(() => {
         context.commit("SET_DATABASE_PERSISTENCE_AVAILABILITY", true)

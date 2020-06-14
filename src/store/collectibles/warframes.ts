@@ -7,16 +7,16 @@ import {
   sortCollectiblesBy,
 } from "@/types/collectibles"
 
-interface context {
+export interface Context {
   commit: (mutation: string, payload?: string | Collectible) => void
 }
 
-interface state {
+export interface State {
   dbCollection: string
   list: CollectiblesList
 }
 
-export const state = function (): state {
+export const state = function (): State {
   return {
     dbCollection: null as string,
     list: [] as CollectiblesList,
@@ -24,33 +24,33 @@ export const state = function (): state {
 }
 
 export const getters = {
-  total: (state: state): number => {
+  total: (state: State): number => {
     return state.list.length
   },
 }
 
 export const mutations = {
-  SET_COLLECTION(state: state, collection: string): void {
+  SET_COLLECTION(state: State, collection: string): void {
     state.dbCollection = collection
   },
 
-  ADD(state: state, collectible: Collectible): void {
+  ADD(state: State, collectible: Collectible): void {
     state.list.push(collectible)
   },
 
-  UPDATE(state: state, updatedCollectible: Collectible): void {
+  UPDATE(state: State, updatedCollectible: Collectible): void {
     const index = state.list.findIndex(
       (collectible: Collectible) => collectible.databaseID === updatedCollectible.databaseID
     )
     state.list.splice(index, 1, updatedCollectible)
   },
 
-  DELETE(state: state, id: string): void {
+  DELETE(state: State, id: string): void {
     const index = state.list.findIndex((collectible: Collectible) => collectible.databaseID === id)
     state.list.splice(index, 1)
   },
 
-  SORT(state: state): void {
+  SORT(state: State): void {
     state.list.sort((collectibleA: Collectible, collectibleB: Collectible) =>
       sortCollectiblesBy(collectibleA, collectibleB, CollectibleSortFields.name)
     )
@@ -58,7 +58,7 @@ export const mutations = {
 }
 
 export const actions = {
-  listen(context: context, collection: string): void {
+  listen(context: Context, collection: string): void {
     context.commit("SET_COLLECTION", collection)
     database
       .collection(collection)
