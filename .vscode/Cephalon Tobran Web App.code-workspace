@@ -22,11 +22,11 @@
       "app",
       "git",
       "github",
-      "jest",
       "lint",
       "packages",
       "readme",
       "ts",
+      "unit",
       "vscode",
       "vue-cli",
       "yarn"
