@@ -1,19 +1,16 @@
 import {
-  Firebase,
   FirebaseIsInitialized,
   FirestoreIsInitialized,
   initFirebase,
   initFirestore,
+  initFirestorePersistence,
 } from "@/services/FirebaseServices"
+import Firebase from "firebase/app"
+import "firebase/firestore"
 
 describe("FirebaseServices", () => {
-  beforeAll(() => {
-    jest.spyOn(Firebase, "initializeApp").mockImplementation()
-    jest.spyOn(Firebase, "firestore").mockImplementation()
-  })
-
   afterEach(() => {
-    jest.resetAllMocks()
+    jest.clearAllMocks()
   })
 
   afterAll(() => {
@@ -38,4 +35,23 @@ describe("FirebaseServices", () => {
     expect(Firebase.firestore).toHaveBeenCalledTimes(1)
     expect(FirestoreIsInitialized).toBe(true)
   })
+
+  it("should initialize Firestore persistence", async () => {
+    const testResult = await initFirestorePersistence()
+
+    expect(testResult).toBe(true)
+  })
+
+  it.todo(
+    "should handle Firestore persistence failure" /* , async () => {
+    const enablePersistenceMock = jest
+      .spyOn(Firebase.firestore(), "enablePersistence")
+      .mockImplementation(() => Promise.reject("Nope"))
+
+    const testResult = await initFirestorePersistence()
+
+    expect(enablePersistenceMock).toHaveBeenCalledTimes(1)
+    expect(testResult).toBe(true)
+  } */
+  )
 })

@@ -36,20 +36,6 @@ export const mutations = {
 export const actions = {
   enableDatabasePersistence(context: Context): void {
     initFirestorePersistence()
-      .then(() => {
-        context.commit("SET_DATABASE_PERSISTENCE_AVAILABILITY", true)
-      })
-      .catch((error) => {
-        context.commit("SET_DATABASE_PERSISTENCE_AVAILABILITY", false)
-
-        if (error.code === "failed-precondition") {
-          console.error("Offline data persistence is disabled because multiple tabs are open.")
-        } else if (error.code === "unimplemented") {
-          console.error(
-            "Offline data persistence is disabled because this browser does not support all of the required features."
-          )
-        }
-      })
   },
 }
 
