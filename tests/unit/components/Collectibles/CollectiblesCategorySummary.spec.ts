@@ -2,6 +2,7 @@
 // import { mount } from "@vue/test-utils"
 
 describe("CollectiblesCategorySummary component", () => {
-  // TODO: figure out how to deal with the require() for the image
-  it.todo("should display the category name")
+  it.todo(
+    "should display the category name, once we figure out how to deal with the require() for the image"
+  )
 })
