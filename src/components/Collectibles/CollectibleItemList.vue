@@ -218,7 +218,7 @@
         }
 
         collectibles.sort((collectibleA: Collectible, collectibleB: Collectible) =>
-          sortCollectiblesBy(this.sortBy, this.sortAscending, collectibleA, collectibleB)
+          sortCollectiblesBy(collectibleA, collectibleB, this.sortBy, this.sortAscending)
         )
 
         return collectibles

@@ -2,6 +2,7 @@
   <v-fab-transition>
     <v-btn
       v-show="show"
+      id="page-scroll-to-top-button"
       v-scroll="onThrottledScroll"
       fab
       color="accent"
@@ -20,7 +21,7 @@
   import throttle from "lodash/throttle"
 
   export default Vue.extend({
-    name: "ScrollToTopButton",
+    name: "TheScrollToTopButton",
 
     data() {
       return {

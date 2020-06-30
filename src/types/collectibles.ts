@@ -57,10 +57,10 @@ export enum CollectibleSortFields {
  * Compare function for Array.prototype.sort()
  */
 export function sortCollectiblesBy(
-  field: CollectibleSortFields,
-  ascending: boolean,
   collectibleA: Collectible,
-  collectibleB: Collectible
+  collectibleB: Collectible,
+  field: CollectibleSortFields,
+  ascending = true
 ): number {
   let sortResult: number
 

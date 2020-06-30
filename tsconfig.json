@@ -13,12 +13,20 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["webpack-env", "jest", "vuetify"],
+    "types": [
+      "webpack-env",
+      "vuetify",
+      "jest",
+      "expect-more-jest",
+      "jest-chain",
+      "@testing-library/jest-dom",
+      "jest-extended"
+    ],
     "paths": {
       "@/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.vue", "tests/**/*.ts"],
   "exclude": ["node_modules"]
 }

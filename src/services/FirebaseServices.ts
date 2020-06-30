@@ -32,6 +32,18 @@ export function initFirestore(): Firebase.firestore.Firestore {
   return db
 }
 
-export function initFirestorePersistence(): Promise<void> {
-  return Firebase.firestore().enablePersistence({ synchronizeTabs: true })
+export async function initFirestorePersistence(): Promise<boolean> {
+  try {
+    await Firebase.firestore().enablePersistence({ synchronizeTabs: true })
+    return true
+  } catch (error) {
+    if (error.code === "failed-precondition") {
+      console.error("Offline data persistence is disabled because multiple tabs are open.")
+    } else if (error.code === "unimplemented") {
+      console.error(
+        "Offline data persistence is disabled because this browser does not support all of the required features."
+      )
+    }
+    return Promise.reject(error.code)
+  }
 }
