@@ -34,6 +34,7 @@ export const mutations = {
 }
 
 export const actions = {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   enableDatabasePersistence(context: Context): void {
     initFirestorePersistence()
   },
