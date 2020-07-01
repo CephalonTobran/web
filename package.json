@@ -17,7 +17,8 @@
     "release": "semantic-release",
     "firebase": "firebase",
     "firebase:deploy": "firebase deploy --only hosting",
-    "snyk-protect": "snyk protect"
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "dependencies": {
     "core-js": "3.6.5",
@@ -25,7 +26,7 @@
     "global": "4.4.0",
     "lodash": "4.17.15",
     "register-service-worker": "1.7.1",
-    "snyk": "1.333.0",
+    "snyk": "^1.355.0",
     "vue": "2.6.11",
     "vue-class-component": "7.2.3",
     "vue-i18n": "8.18.1",
@@ -57,7 +58,7 @@
     "@vue/test-utils": "1.0.3",
     "babel-loader": "8.1.0",
     "commitizen": "4.1.2",
-    "conventional-changelog-conventionalcommits": "4.3.0",
+    "conventional-changelog-conventionalcommits": "4.3.1",
     "cz-conventional-changelog": "3.2.0",
     "eslint": "7.1.0",
     "eslint-plugin-jest": "23.13.2",
