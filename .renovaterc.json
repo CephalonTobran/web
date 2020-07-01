@@ -37,7 +37,7 @@
       "depTypeList": ["devDependencies"],
       "packagePatterns": ["eslint"],
       "groupName": "ESLint dependencies",
-      "prPriority": -1
+      "prPriority": 1
     }
   ],
   "prCreation": "not-pending",
