@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://www.conventionalcommits.org/) for commit guidelines.
 
+### [0.1.4](https://github.com/CephalonTobran/web/compare/v0.1.3...v0.1.4) (2020-07-01)
+
+
+### Bug Fixes
+
+* build failure ([#106](https://github.com/CephalonTobran/web/issues/106)) ([f52b8e2](https://github.com/CephalonTobran/web/commit/f52b8e22a2ef8ef26646773fa0b3865ae1dc3a7e))
+
 ### [0.1.3](https://github.com/CephalonTobran/web/compare/v0.1.2...v0.1.3) (2020-07-01)
 
 
