@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://www.conventionalcommits.org/) for commit guidelines.
 
+### [0.1.3](https://github.com/CephalonTobran/web/compare/v0.1.2...v0.1.3) (2020-07-01)
+
+
+### External Dependency Updates
+
+* **packages:** update most dependencies ([#105](https://github.com/CephalonTobran/web/issues/105)) ([23d6afc](https://github.com/CephalonTobran/web/commit/23d6afc86d2d476285f1e7469a70579050ca948b))
+* update all dependencies ([#84](https://github.com/CephalonTobran/web/issues/84)) ([1e19837](https://github.com/CephalonTobran/web/commit/1e19837ebec78b8808d38c2302d2396b8b6ae9b4))
+
 ### [0.1.2](https://github.com/CephalonTobran/web/compare/v0.1.1...v0.1.2) (2020-05-23)
 
 
