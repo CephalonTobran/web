@@ -1,6 +1,9 @@
 import Vue from "vue"
 import Vuetify from "vuetify"
+import { Wrapper } from "@vue/test-utils"
 import { ObjectContainingAnything } from "../_utility/utilities"
+
+export type WrapperObject = Wrapper<Vue & ObjectContainingAnything>
 
 export function shallowInitVuetify(): void {
   Vue.use(Vuetify)

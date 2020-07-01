@@ -1,9 +1,8 @@
 import CollectibleItemList from "@/components/Collectibles/CollectibleItemList.vue"
 import CollectibleItemSummary from "@/components/Collectibles/CollectibleItemSummary.vue"
-import { shallowMount, Wrapper } from "@vue/test-utils"
+import { shallowMount } from "@vue/test-utils"
 import { CollectibleSortFields } from "@/types/collectibles"
-import { ObjectContainingAnything } from "../../_utility/utilities"
-import { shallowInitVuetify } from "../../_setup/vue"
+import { shallowInitVuetify, WrapperObject } from "../../_setup/vue"
 
 shallowInitVuetify()
 
@@ -19,7 +18,7 @@ type DummyCollectibleItemList = Array<DummyCollectibleItem>
 
 describe("CollectibleItemList component", () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let wrapper: Wrapper<CollectibleItemList & ObjectContainingAnything>
+  let wrapper: WrapperObject
 
   const collectibleList: DummyCollectibleItemList = [
     {
