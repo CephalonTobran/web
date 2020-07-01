@@ -45,6 +45,6 @@ jobs:
           key: ${{ runner.os }}-firebase
 
       - name: Deploy to Firebase
-        run: yarn firebase:deploy --non-interactive
+        run: yarn firebase:deploy --project cephalon-tobran --non-interactive
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
