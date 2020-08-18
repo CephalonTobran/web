@@ -23,7 +23,7 @@
     "core-js": "3.6.5",
     "firebase": "7.15.5",
     "global": "4.4.0",
-    "lodash": "4.17.15",
+    "lodash": "4.17.20",
     "register-service-worker": "1.7.1",
     "snyk": "1.359.0",
     "vue": "2.6.11",
@@ -35,8 +35,8 @@
     "vuex": "3.5.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "9.0.1",
-    "@commitlint/config-conventional": "9.0.1",
+    "@commitlint/cli": "9.1.2",
+    "@commitlint/config-conventional": "10.0.0",
     "@intlify/eslint-plugin-vue-i18n": "0.4.1",
     "@semantic-release/changelog": "5.0.1",
     "@semantic-release/git": "9.0.0",
@@ -57,7 +57,7 @@
     "@vue/test-utils": "1.0.3",
     "babel-loader": "8.1.0",
     "commitizen": "4.1.2",
-    "conventional-changelog-conventionalcommits": "4.3.0",
+    "conventional-changelog-conventionalcommits": "4.3.1",
     "cz-conventional-changelog": "3.2.0",
     "eslint": "7.3.1",
     "eslint-plugin-jest": "23.17.1",
